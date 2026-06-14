@@ -37,3 +37,5 @@ ________________________________________________________________________________
 
 Start date 14th june 2026
 
+
+After working with typescript for hours for just this little code snipplet i think i need a break and undestand the basics of typescript first... its getting confusing React used to nag me about bad usage in console but this one wont even run if i dont solve the error.

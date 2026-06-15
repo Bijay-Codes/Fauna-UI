@@ -39,3 +39,16 @@ Start date 14th june 2026
 
 
 After working with typescript for hours for just this little code snipplet i think i need a break and undestand the basics of typescript first... its getting confusing React used to nag me about bad usage in console but this one wont even run if i dont solve the error.
+
+
+After fighting typescript for this long i think its getting usefull but after i make it understand what my data looks like before passing it around
+
+i gotta tell it what type of data am i giving it everytime though its neat and managable since we can export the types and use it anywhere we want as a check so its just initial pain of looking at red squiglly lines and then bugfree codebase afterwards. Even this error is temporary i guess once we know typescript i wont be seeing that red line because id know what im doing to begin with
+
+Today i used [ type ]and [ interface ]
+
+type is used to define what data we are giving/expecting in a variable, if the data type is complex like nested objects and all then we can make a type of that as well and use the other type in its place...
+
+To be honest i feel so lost and demotivated to create this project now, the data for colors is being a big hurdle for now, when i try to make a color pallate as per WGAC standard the colors desatuarate or go off the theme of animal or if i try to make a pallate out of theme the pallate colors sometimes break WGAC standard.
+
+if possible i will need a way to tweak it mathematically and manually to get to a middle ground but as the things are going i think this site doesnt need a database at all all it needs to do is help developers pick colors and back to work rather than play around here, as for the saving to the list part i dont think we need a database for that we can use.... localstorage AGAINNNN, here i thought i will break the cycle and make something outta a real database for once but well guess what the project doesnt even need one right now... i might change my decisions later but for now i will try to finish the client side version of it first instead of worrying about a database since i literally have no good data to use, i am using these as placeholders and experimental things

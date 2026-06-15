@@ -1,1 +1,63 @@
-@import 'tailwindcss'
+@import 'tailwindcss';
+
+/* Light */
+
+
+[data-theme="light"] {
+    --page-bg: oklch(0.9862 0.0068 247.894);
+    --page-fg: oklch(0.2077 0.0398 265.7549);
+    --surface-bg: oklch(0.9629 0.0182 250.5883);
+    --surface-fg: oklch(0.2823 0.0874 267.9352);
+    --surface-muted-bg: oklch(0.9265 0.0294 248.1456);
+    --surface-muted-fg: oklch(0.3717 0.0392 257.287);
+    --primary-bg: oklch(0.4185 0.1212 252.7449);
+    --primary-fg: oklch(1 0 0);
+    --secondary-bg: oklch(0.5383 0.0952 257.756);
+    --secondary-fg: oklch(1 0 0);
+    --accent-bg: oklch(0.7535 0.139 232.6615);
+    --accent-fg: oklch(0.2935 0.0632 243.1571);
+    --success-color: oklch(0.5273 0.1371 150.0693);
+    --success-fg: oklch(1 0 0);
+    --warning-color: oklch(0.5553 0.1455 48.9975);
+    --warning-fg: oklch(1 0 0);
+    --danger-color: oklch(0.5054 0.1905 27.5181);
+    --danger-fg: oklch(1 0 0);
+}
+
+/* Dark */
+[data-theme="dark"] {
+    --page-bg: oklch(0.1756 0.0286 255.6434);
+    --page-fg: oklch(0.9842 0.0034 247.8578);
+    --surface-bg: oklch(0.2399 0.0427 253.6625);
+    --surface-fg: oklch(0.9288 0.0126 255.5079);
+    --surface-muted-bg: oklch(0.3045 0.0551 253.5925);
+    --surface-muted-fg: oklch(0.8188 0.0279 255.1115);
+    --primary-bg: oklch(0.7047 0.1587 252.3506);
+    --primary-fg: oklch(0.1736 0.0355 249.7275);
+    --secondary-bg: oklch(0.5639 0.0762 253.5021);
+    --secondary-fg: oklch(1 0 0);
+    --accent-bg: oklch(0.8651 0.1153 207.0778);
+    --accent-fg: oklch(0.3018 0.0541 229.6954);
+    --success-color: oklch(0.8003 0.1821 151.711);
+    --success-fg: oklch(0.2664 0.0628 152.9343);
+    --warning-color: oklch(0.8369 0.1644 84.4286);
+    --warning-fg: oklch(0.2791 0.0742 45.6352);
+    --danger-color: oklch(0.7106 0.1661 22.2162);
+    --danger-fg: oklch(0.2575 0.0886 26.0418);
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--page-bg) 90% 20%, var(--surface-bg));
+    transition: all 0.2s ease-in-out;
+    color: var(--page-fg);
+}
+
+.prim-font {
+    font-family: 'DM Sans', 'Trebuchet MS' sans-serif;
+}
+
+.sec-font {
+    font-family: 'Inter', Arial, sans-serif;
+}

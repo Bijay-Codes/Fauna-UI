@@ -1,8 +1,15 @@
 import './App.css'
-import { animalData } from './Data/parser'
+import { RenderCards } from './components/RenderCard'
+import { RenderNav } from './components/RenderNav'
+import { RenderSearch } from './components/RenderSearch'
 function App() {
-    console.log(animalData);
-
+    return (
+        <div>
+            <RenderNav />
+            <RenderSearch />
+            <RenderCards />
+        </div>
+    )
 }
 
 export default App

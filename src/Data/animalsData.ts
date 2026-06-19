@@ -1,4 +1,7 @@
 import type { theme } from "../types";
+
+
+
 export const colorAnim: theme[] = [
   {
     id: 1,

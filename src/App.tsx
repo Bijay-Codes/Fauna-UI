@@ -1,13 +1,13 @@
 import './App.css'
 import { RenderCards } from './components/RenderCard'
-import { RenderNav } from './components/RenderNav'
 import { RenderSearch } from './components/RenderSearch'
+import { RenderCategory } from './components/RenderCategory'
 function App() {
     return (
-        <div>
-            <RenderNav />
+        <div className='flex flex-col gap-6'>
             <RenderSearch />
             <RenderCards />
+            <RenderCategory />
         </div>
     )
 }

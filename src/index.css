@@ -46,10 +46,8 @@
     --danger-fg: oklch(0.2575 0.0886 26.0418);
 }
 
-#root {
-    width: 100vw;
-    height: 100vh;
-    background: linear-gradient(to bottom, var(--page-bg) 90% 20%, var(--surface-bg));
+body {
+    background: var(--page-bg);
     transition: all 0.2s ease-in-out;
     color: var(--page-fg);
 }

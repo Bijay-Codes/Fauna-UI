@@ -13,6 +13,6 @@ export const category = [
     },
     {
         category: "Knowledge & Purpose",
-        "subcategories": ["education", "research", "community", "nonprofit"]
+        subcategories: ["education", "research", "community", "nonprofit"]
     }
 ]

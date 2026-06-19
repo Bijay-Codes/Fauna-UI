@@ -10,12 +10,12 @@ interface CardDataProps {
 
 export function RenderCards() {
     return (
-        <section className="text-(--text-prim) p-4 max-h-100">
-            <div className="text-2xl p-2">Featured</div>
+        <section className="text-(--text-prim) p-4">
+            <div className="text-2xl p-2">Hot picks</div>
             <div className="flex flex-nowrap items-center overflow-x-auto gap-4">
                 {colorAnim.map(data => {
                     return (
-                        <div key={data.id}>
+                        <div key={data.id} className="h-full">
                             <RenderCard data={data} />
                         </div>
                     );
@@ -36,8 +36,8 @@ export function RenderCard({ data }: CardDataProps) {
                 onClick={() => {
                     setMode(prev => prev === 'dark' ? 'light' : 'dark');
                 }}
-                className='flex flex-col items-center gap-2 hover:-translate-y-0.5 hover:outline
-                min-h-75 aspect-square p-2 rounded-xl transition-all duration-200 cursor-pointer'
+                className='flex flex-col items-center gap-2 hover:translate-y-1
+                min-w-70 aspect-square p-2 rounded-xl transition-all duration-200 cursor-pointer'
                 style={{
                     background: primary_bg,
                     color: primary_fg

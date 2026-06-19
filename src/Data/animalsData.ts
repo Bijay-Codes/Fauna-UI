@@ -158,7 +158,7 @@ export const colorAnim: theme[] = [
   },
   {
     id: 4,
-    defaultMode: "light",
+    defaultMode: "dark",
     categories: ["luxury", "creative", "technology", "ecommerce", "entertainment"],
     sites: ["portfolio", "agency", "store", "startup", "magazine", "podcast", "dashboard", "showcase"],
     tags: ["luxury", "premium", "elegant", "dark", "sleek", "powerful", "bold", "modern", "mysterious", "high_contrast"],

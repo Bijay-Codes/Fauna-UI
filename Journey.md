@@ -54,10 +54,14 @@ To be honest i feel so lost and demotivated to create this project now, the data
 if possible i will need a way to tweak it mathematically and manually to get to a middle ground but as the things are going i think this site doesnt need a database at all all it needs to do is help developers pick colors and back to work rather than play around here, as for the saving to the list part i dont think we need a database for that we can use.... localstorage AGAINNNN, here i thought i will break the cycle and make something outta a real database for once but well guess what the project doesnt even need one right now... i might change my decisions later but for now i will try to finish the client side version of it first instead of worrying about a database since i literally have no good data to use, i am using these as placeholders and experimental things
 
 
-### Day IDK
+### Day After that
 
 Sooo i have been struggling to finish this project... not because of complexity but because the idea of we can generate a color pallate mathematically is vague for me now and i cant trust something i dont understand.
 
 Even after that idk why but my motivation to create this project keeps going down for some reason but im pushing forward regardless, currently the repo is private for now but once the project is finished i will be putting it public.
 
 My brain is getting melted today like im so lost what to do in this project anymore i should have planned out well... i guess this is what happens when you just jump to a project directly even if i know what i want to do i dont feel the energy to do so.
+
+
+WELLL my exams are starting up but this project is already underway so i plan to finish this one before it starts and give it my best so my goal for now is to finish this ASAP which can be easy if i were focusing instead...
+i dont think i will be babbling here for some days since im not getting much time to code and the time i get shouldnt be used on this i guess.

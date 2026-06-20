@@ -12,7 +12,6 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/' element={<App />} />
       <Route path="/home" element={<App />} />
       <Route path='/explore' element={<RenderExplore />} />
-      <Route path='/community' element={<div>Coming soon mew</div>} />
       <Route path='/explore/:id' element={<RenderDetail />} />
     </Routes>
   </BrowserRouter>

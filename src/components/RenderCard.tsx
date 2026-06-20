@@ -15,7 +15,7 @@ export function RenderCards() {
             <div className="flex flex-nowrap items-center overflow-x-auto gap-4">
                 {colorAnim.map(data => {
                     return (
-                        <div key={data.id} className="h-full">
+                        <div key={data.id} className="h-full snap-proximity">
                             <RenderCard data={data} />
                         </div>
                     );
@@ -37,7 +37,7 @@ export function RenderCard({ data }: CardDataProps) {
                     setMode(prev => prev === 'dark' ? 'light' : 'dark');
                 }}
                 className='flex flex-col items-center gap-2 hover:translate-y-1
-                min-w-70 aspect-square p-2 rounded-xl transition-all duration-200 cursor-pointer'
+                min-w-60 h-fit sm:min-w-70 aspect-square p-2 rounded-xl transition-all duration-200 cursor-pointer'
                 style={{
                     background: primary_bg,
                     color: primary_fg

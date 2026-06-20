@@ -7,7 +7,7 @@ function App() {
         <div className='flex flex-col gap-2'>
             <RenderSearch />
             <RenderCards />
-            <RenderCategory />
+            <RenderCategory homeview={true} />
         </div>
     )
 }

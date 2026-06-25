@@ -27,7 +27,6 @@ export type theme = {
     defaultMode: 'light' | 'dark';
     categories: string[];
     sites: string[];
-    tags: string[];
     name: string;
     color: {
         light: color;

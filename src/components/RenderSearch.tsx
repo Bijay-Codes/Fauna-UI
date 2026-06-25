@@ -14,7 +14,7 @@ export function RenderSearch() {
     }
 
     return (
-        <div className="rounded-lg m-auto active:outline-0 min-w-[70%] mt-4 grid grid-cols-[1fr_auto]">
+        <div className="rounded-lg m-auto active:outline-0 max-w-250 min-w-[60%] grid grid-cols-[1fr_auto] p-4">
             <input type="search"
                 value={text}
                 onKeyDown={(e) => {

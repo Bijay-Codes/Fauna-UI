@@ -4,7 +4,7 @@ import { RenderSearch } from './components/RenderSearch'
 import { RenderCategory } from './components/RenderCategory'
 function App() {
     return (
-        <div className='flex flex-col gap-2'>
+        <div className='sm:p-8'>
             <RenderSearch />
             <RenderCards />
             <RenderCategory homeview={true} />

@@ -1,7 +1,9 @@
 @import 'tailwindcss';
 
 /* Light */
-
+root {
+    --border: oklch(61.367% 0.00155 285.687);
+}
 
 [data-theme="light"] {
     --page-bg: oklch(0.9862 0.0068 247.894);
@@ -59,3 +61,7 @@ body {
 .sec-font {
     font-family: 'Inter', Arial, sans-serif;
 }
+
+/* * {
+    outline: 1px solid greenyellow;
+} */

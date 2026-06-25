@@ -10,7 +10,7 @@ export function RenderDetail() {
 
     if (!card) {
         return (
-            <section className="p-4 text-white">
+            <section>
                 <Link to='/explore' className="underline">← Go back to Explore</Link>
                 <div className="mt-4">Theme not found.</div>
             </section>
@@ -26,15 +26,15 @@ export function RenderDetail() {
 
     return (
         <section
-            className="p-8 min-h-screen transition-all duration-300"
+            className="flex flex-col gap-6 px-4"
             style={{ background: page_bg, color: page_fg }}
         >
             <Link to='/explore' className="underline">← Go back to Explore</Link>
-            <h1 className="text-4xl font-black mt-6">Welcome to {name} theme</h1>
-            <div className="flex gap-4 items-center">
+            <h1 className="text-2xl">Welcome to <span style={{ color: accent_bg }} className="font-extrabold">{name}</span> theme</h1>
+            <div className="">
                 <h2>Current Preview</h2>
                 <button
-                    className="px-4 py-1 rounded-xl"
+                    className=""
                     style={{ background: accent_bg, color: accent_fg }}
                     onClick={toggle}
                 >
@@ -42,7 +42,7 @@ export function RenderDetail() {
                 </button>
             </div>
             <article>
-                <div className="mt-4">
+                <div className="">
                     Copy this theme <CopyThemeButton color={color} mode={mode} />
                 </div>
             </article>

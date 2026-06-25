@@ -9,13 +9,14 @@ interface CardDataProps {
 }
 
 export function RenderCards() {
+    const data = colorAnim.slice(0, 4);
     return (
-        <section className="text-(--text-prim) p-4">
-            <div className="text-2xl p-2">Hot picks</div>
-            <div className="flex flex-nowrap items-center overflow-x-auto gap-4">
-                {colorAnim.map(data => {
+        <section className="flex flex-col p-4">
+            <div className="text-xl">Hot picks</div>
+            <div className="flex flex-nowrap gap-4 overflow-auto h-fit py-4">
+                {data.map(data => {
                     return (
-                        <div key={data.id} className="h-full snap-proximity">
+                        <div key={data.id}>
                             <RenderCard data={data} />
                         </div>
                     );
@@ -36,26 +37,28 @@ export function RenderCard({ data }: CardDataProps) {
                 onClick={() => {
                     setMode(prev => prev === 'dark' ? 'light' : 'dark');
                 }}
-                className='flex flex-col items-center gap-2 hover:translate-y-1
-                min-w-60 h-fit sm:min-w-70 aspect-square p-2 rounded-xl transition-all duration-200 cursor-pointer'
+                className="w-65 aspect-square rounded-lg text-center
+                flex flex-col gap-4 p-4 justify-center items-center
+                hover:-translate-y-1 border-(--primary-bg) hover:border-l-4 hover:border-r-4
+                transition-all duration-100 ease-in"
                 style={{
                     background: primary_bg,
-                    color: primary_fg
+                    color: primary_fg,
+                    borderColor: accent_bg
                 }}
             >
                 <div className="text-2xl font-extrabold">{data.name}</div>
-                <div className="flex flex-wrap gap-2 items-center justify-center font-light">
-                    <span>Fonts </span>
+                <div className="flex flex-wrap text-xs">
                     <span>[{data.font.main}]</span>
                     <span>[{data.font.body}]</span>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex flex-wrap gap-2">
                     <div className={colors} style={{ background: accent_bg }}></div>
                     <div className={colors} style={{ background: secondary_bg }}></div>
                     <div className={colors} style={{ background: surface_bg }}></div>
                     <div className={colors} style={{ background: surface_muted_bg }}></div>
                 </div>
-                <div className="flex flex-wrap gap-2 items-center justify-center">
+                <div className="">
                     {data.categories.map((c, i) => {
                         if (i <= 3)
                             return (

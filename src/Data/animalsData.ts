@@ -6,9 +6,21 @@ export const colorAnim: theme[] = [
   {
     id: 1,
     defaultMode: "light",
-    categories: ["travel", "education", "community", "hospitality", "creative"],
-    sites: ["travel", "learning", "community", "restaurant", "hotel", "blog", "portfolio", "startup"],
-    tags: ["tropical", "friendly", "playful", "bright", "warm", "nature", "creative", "approachable", "optimistic", "daylight"],
+    categories: [
+      "marketing",
+      "saas",
+      "ecommerce",
+      "blog",
+      "portfolio"
+    ],
+    sites: [
+      "landing-page",
+      "booking-app",
+      "restaurant-site",
+      "admin-dashboard",
+      "lms-portal",
+      "personal-site"
+    ],
     name: "Toucan",
     color: {
       light: {
@@ -59,7 +71,6 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["corporate", "technology", "education", "developer", "startup"],
     sites: ["dashboard", "startup", "portfolio", "learning", "documentation", "blog", "agency", "directory"],
-    tags: ["arctic", "clean", "minimal", "professional", "cool", "crisp", "modern", "trustworthy", "airy", "light"],
     name: "Arctic Fox",
     color: {
       light: {
@@ -110,7 +121,6 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["community", "education", "startup", "nonprofit", "wellness"],
     sites: ["blog", "learning", "community", "charity", "startup", "portfolio", "event", "store"],
-    tags: ["friendly", "cozy", "warm", "playful", "approachable", "woodland", "organic", "comfortable", "soft", "cheerful"],
     name: "Red Panda",
     color: {
       light: {
@@ -161,7 +171,6 @@ export const colorAnim: theme[] = [
     defaultMode: "dark",
     categories: ["luxury", "creative", "technology", "ecommerce", "entertainment"],
     sites: ["portfolio", "agency", "store", "startup", "magazine", "podcast", "dashboard", "showcase"],
-    tags: ["luxury", "premium", "elegant", "dark", "sleek", "powerful", "bold", "modern", "mysterious", "high_contrast"],
     name: "Black Panther",
     color: {
       light: {
@@ -212,7 +221,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["startup", "technology", "creative", "education", "travel"],
     sites: ["startup", "portfolio", "agency", "blog", "learning", "travel", "showcase", "landing"],
-    tags: ["vibrant", "energetic", "bright", "modern", "clean", "optimistic", "fresh", "dynamic", "bold", "daylight"],
+
     name: "Kingfisher",
     color: {
       light: {
@@ -263,7 +272,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["nonprofit", "wellness", "education", "community", "travel"],
     sites: ["charity", "blog", "learning", "community", "travel", "directory", "event", "store"],
-    tags: ["nature", "eco", "green", "fresh", "organic", "sustainable", "tropical", "healthy", "vibrant", "natural"],
+
     name: "Emerald Tree Frog",
     color: {
       light: {
@@ -314,7 +323,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["corporate", "finance", "luxury", "technology", "education"],
     sites: ["dashboard", "startup", "agency", "portfolio", "landing", "learning", "magazine", "showcase"],
-    tags: ["prestige", "executive", "confident", "premium", "powerful", "ambitious", "authoritative", "refined", "bold", "professional"],
+
     name: "Golden Eagle",
     color: {
       light: {
@@ -365,7 +374,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["creative", "luxury", "entertainment", "personal", "ecommerce"],
     sites: ["portfolio", "showcase", "magazine", "gallery", "blog", "event", "landing"],
-    tags: ["artistic", "graceful", "expressive", "dreamy", "refined", "vibrant"],
+
     name: "Emperor Butterfly",
     color: {
       light: {
@@ -416,7 +425,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["creative", "hospitality", "entertainment", "ecommerce", "personal"],
     sites: ["portfolio", "event", "blog", "restaurant", "hotel", "gallery", "landing"],
-    tags: ["playful", "vibrant", "stylish", "social", "trendy", "cheerful", "energetic", "colorful", "expressive", "modern"],
+
     name: "Flamingo",
     color: {
       light: {
@@ -467,7 +476,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["corporate", "technology", "developer", "finance", "education"],
     sites: ["dashboard", "documentation", "startup", "portfolio", "learning", "agency", "landing"],
-    tags: ["minimal", "clean", "precise", "refined", "professional", "calm", "modern", "balanced", "cool", "elegant"],
+
     name: "Snow Leopard",
     color: {
       light: {
@@ -518,7 +527,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["creative", "entertainment", "travel", "ecommerce", "community"],
     sites: ["portfolio", "gallery", "event", "travel", "store", "blog", "community", "landing"],
-    tags: ["bold", "vibrant", "energetic", "tropical", "expressive", "colorful", "adventurous", "dynamic", "confident", "lively"],
+
     name: "Scarlet Macaw",
     color: {
       light: {
@@ -569,7 +578,7 @@ export const colorAnim: theme[] = [
     defaultMode: "dark",
     categories: ["technology", "creative", "startup", "gaming", "entertainment"],
     sites: ["dashboard", "startup", "portfolio", "showcase", "gaming", "landing", "magazine", "gallery"],
-    tags: ["futuristic", "vivid", "neon", "innovative", "experimental", "dynamic", "cyber", "high_tech", "energetic", "colorful"],
+
     name: "Mantis Shrimp",
     color: {
       light: {
@@ -620,7 +629,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["corporate", "technology", "finance", "developer", "health"],
     sites: ["dashboard", "documentation", "landing", "startup", "agency", "learning", "blog", "directory"],
-    tags: ["minimal", "professional", "reliable", "modern"],
+
     name: "Polar Bear",
     color: {
       light: {
@@ -671,7 +680,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["startup", "sports", "creative", "entertainment", "ecommerce"],
     sites: ["landing", "startup", "store", "event", "portfolio", "gaming", "showcase", "community"],
-    tags: ["bold", "energetic", "powerful", "confident", "dynamic", "fearless", "strong", "adventurous", "ambitious", "aggressive"],
+
     name: "Tiger",
     color: {
       light: {
@@ -722,7 +731,7 @@ export const colorAnim: theme[] = [
     defaultMode: "dark",
     categories: ["technology", "developer", "creative", "gaming", "entertainment"],
     sites: ["dashboard", "documentation", "portfolio", "gaming", "magazine", "blog", "showcase", "community"],
-    tags: ["mysterious", "intelligent", "dark", "strategic", "focused", "modern", "analytical", "thoughtful"],
+
     name: "Raven",
     color: {
       light: {
@@ -773,7 +782,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["luxury", "creative", "entertainment", "ecommerce", "hospitality"],
     sites: ["portfolio", "gallery", "showcase", "store", "event", "magazine", "landing"],
-    tags: ["elegant", "vibrant", "luxurious", "expressive", "colorful", "refined"],
+
     name: "Peacock",
     color: {
       light: {
@@ -824,7 +833,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["wellness", "education", "community", "nonprofit", "personal"],
     sites: ["blog", "learning", "community", "charity", "portfolio", "directory", "event", "store"],
-    tags: ["calm", "gentle", "soft", "relaxed", "comforting", "friendly", "peaceful", "approachable", "balanced", "natural"],
+
     name: "Koala",
     color: {
       light: {
@@ -875,7 +884,7 @@ export const colorAnim: theme[] = [
     defaultMode: "dark",
     categories: ["creative", "technology", "education", "entertainment", "personal"],
     sites: ["portfolio", "blog", "landing", "learning", "showcase", "gallery", "startup", "magazine"],
-    tags: ["glowing", "magical", "inspiring", "night", "luminous", "imaginative", "wonder", "dreamlike", "gentle", "atmospheric"],
+
     name: "Firefly",
     color: {
       light: {
@@ -926,7 +935,7 @@ export const colorAnim: theme[] = [
     defaultMode: "light",
     categories: ["developer", "corporate", "technology", "finance", "productivity"],
     sites: ["dashboard", "documentation", "landing", "startup", "directory", "agency", "blog", "portal"],
-    tags: ["monochrome", "minimal", "efficient", "organized", "high_contrast"],
+
     name: "Zebra",
     color: {
       light: {
@@ -977,7 +986,7 @@ export const colorAnim: theme[] = [
     defaultMode: "dark",
     categories: ["technology", "developer", "startup", "education", "research"],
     sites: ["dashboard", "documentation", "startup", "learning", "portal", "blog", "showcase", "community"],
-    tags: ["intelligent", "adaptive", "innovative", "curious", "deep", "technical", "connected", "versatile", "inventive", "exploratory"],
+
     name: "Octopus",
     color: {
       light: {

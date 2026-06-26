@@ -20,9 +20,9 @@ export function RenderExplore() {
     const filtered = subcategories ? filterCategory(subcategories, colorAnim) : colorAnim;
 
     return (
-        <div className="relative flex flex-col gap-10 justify-center items-center p-2 max-w-300">
+        <div className="relative flex flex-col gap-4 sm:gap-10 justify-center items-center max-w-300">
             <RenderSearch homepage={false} />
-            <div className="self-baseline-last px-4">
+            <div className="px-4 self-start">
                 <RenderFilter />
             </div>
             {subcategories && (

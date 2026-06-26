@@ -8,7 +8,6 @@ export function RenderCategory({ homeview }: { homeview: boolean }) {
         <section className="p-4 flex flex-col gap-4 w-full">
             {homeview && <div className="text-xl font-extrabold text-(--primary-bg)">Category</div>}
 
-            {/* Added flex-wrap here so items drop down when space runs out */}
             <div className="flex flex-wrap gap-4 text-xs">
                 {category.map(c => (
                     <div

@@ -12,9 +12,9 @@ export function RenderNav() {
     return (
         <nav className="h-13 w-full border-b border-(--accent-bg)/30">
             <div className="m-auto flex items-center py-4 sm:px-10 p-2">
-                <ul className="flex gap-4 items-center w-full">
+                <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li>
-                        <NavLink to="/" className='text-sm sm:text-2xl tracking-widest'>
+                        <NavLink to="/" className='text-md sm:text-2xl tracking-widest'>
                             Fauna<span className="text-(--primary-bg)">UI</span>
                         </NavLink>
                     </li>

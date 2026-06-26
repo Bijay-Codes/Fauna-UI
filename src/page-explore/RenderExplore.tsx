@@ -4,7 +4,7 @@ import { RenderCard } from "../components/RenderCard";
 import { colorAnim } from "../Data/animalsData";
 import { RenderSearch } from "../components/RenderSearch";
 import { filterCategory } from "../utils/helping-util";
-
+import { RenderFilter } from "./RenderFilters";
 export function RenderExplore() {
     const location = useLocation();
     const initial = location.state?.subcategories as string[] | undefined;
@@ -20,18 +20,21 @@ export function RenderExplore() {
     const filtered = subcategories ? filterCategory(subcategories, colorAnim) : colorAnim;
 
     return (
-        <div className="relative flex flex-col gap-10">
-            <RenderSearch />
-
+        <div className="relative flex flex-col gap-10 justify-center items-center p-2 max-w-300">
+            <RenderSearch homepage={false} />
+            <div className="self-baseline-last px-4">
+                <RenderFilter />
+            </div>
             {subcategories && (
                 <button
                     onClick={() => setSubcategories(undefined)}
                     className="text-sm px-3 py-1 rounded-full fixed bottom-2 right-2
-                    bg-(--warning-color)/80 text-(--warning-fg) hover:bg-(--warning-color) hover:text-(--warning-fg)"
+                bg-(--warning-color)/80 text-(--warning-fg) hover:bg-(--warning-color) hover:text-(--warning-fg)"
                 >
                     Clear filter ✕
                 </button>
-            )}
+            )
+            }
 
             <main className="flex flex-wrap justify-center gap-6
             overflow-hidden">
@@ -39,6 +42,6 @@ export function RenderExplore() {
                     <RenderCard key={data.id} data={data} />
                 ))}
             </main>
-        </div>
+        </div >
     );
 }

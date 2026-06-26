@@ -5,7 +5,7 @@ import { RenderCategory } from './components/RenderCategory'
 function App() {
     return (
         <div className='sm:p-8'>
-            <RenderSearch />
+            <RenderSearch homepage={true} />
             <RenderCards />
             <RenderCategory homeview={true} />
         </div>

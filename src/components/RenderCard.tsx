@@ -37,7 +37,7 @@ export function RenderCard({ data }: CardDataProps) {
                 onClick={() => {
                     setMode(prev => prev === 'dark' ? 'light' : 'dark');
                 }}
-                className="w-65 aspect-square rounded-lg text-center
+                className="w-60 aspect-square rounded-lg text-center
                 flex flex-col gap-4 p-4 justify-center items-center
                 hover:-translate-y-1 border-(--primary-bg) hover:border-l-4 hover:border-r-4
                 transition-all duration-100 ease-in"

@@ -54,6 +54,13 @@ body {
     color: var(--page-fg);
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .prim-font {
     font-family: 'DM Sans', 'Trebuchet MS' sans-serif;
 }

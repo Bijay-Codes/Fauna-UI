@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')!).render(
     <Routes>
       <Route path='/' element={<App />} />
       <Route path="/home" element={<App />} />
-      <Route path='/explore' element={<RenderExplore />} />
+      <Route path='/explore' element={<div className='flex items-center justify-center'><RenderExplore /></div>} />
       <Route path='/explore/:id' element={<RenderDetail />} />
     </Routes>
   </BrowserRouter>

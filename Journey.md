@@ -65,3 +65,5 @@ My brain is getting melted today like im so lost what to do in this project anym
 
 WELLL my exams are starting up but this project is already underway so i plan to finish this one before it starts and give it my best so my goal for now is to finish this ASAP which can be easy if i were focusing instead...
 i dont think i will be babbling here for some days since im not getting much time to code and the time i get shouldnt be used on this i guess.
+
+Hmm haven't been writing now right? well the exams are very close so im puttin all my time on study or coding the repo has been queit so i started doing some work here and just finished adding the filter functionality i will be putting this repo public now since i can show it now because it is finally looking good and usable though i still thing the color themes need a little work and add more animal themes.

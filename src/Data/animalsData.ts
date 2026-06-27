@@ -13,6 +13,8 @@ export const colorAnim: theme[] = [
       "blog",
       "portfolio"
     ],
+
+    tagline: 'Wild colors. Structured code',
     sites: [
       "landing-page",
       "booking-app",
@@ -70,6 +72,7 @@ export const colorAnim: theme[] = [
     id: 2,
     defaultMode: "light",
     categories: ["corporate", "technology", "education", "developer", "startup"],
+    tagline: "Frosty white coat, razor-sharp instincts",
     sites: ["dashboard", "startup", "portfolio", "learning", "documentation", "blog", "agency", "directory"],
     name: "Arctic Fox",
     color: {
@@ -120,6 +123,7 @@ export const colorAnim: theme[] = [
     id: 3,
     defaultMode: "light",
     categories: ["community", "education", "startup", "nonprofit", "wellness"],
+    tagline: 'Fiery red fur, playful spirit',
     sites: ["blog", "learning", "community", "charity", "startup", "portfolio", "event", "store"],
     name: "Red Panda",
     color: {
@@ -170,6 +174,7 @@ export const colorAnim: theme[] = [
     id: 4,
     defaultMode: "dark",
     categories: ["luxury", "creative", "technology", "ecommerce", "entertainment"],
+    tagline: "Midnight coat, shadow hunter",
     sites: ["portfolio", "agency", "store", "startup", "magazine", "podcast", "dashboard", "showcase"],
     name: "Black Panther",
     color: {
@@ -220,8 +225,8 @@ export const colorAnim: theme[] = [
     id: 5,
     defaultMode: "light",
     categories: ["startup", "technology", "creative", "education", "travel"],
+    tagline: "Electric blue feathers, lightning-fast diver",
     sites: ["startup", "portfolio", "agency", "blog", "learning", "travel", "showcase", "landing"],
-
     name: "Kingfisher",
     color: {
       light: {
@@ -271,6 +276,7 @@ export const colorAnim: theme[] = [
     id: 6,
     defaultMode: "light",
     categories: ["nonprofit", "wellness", "education", "community", "travel"],
+    tagline: "Vibrant green skin, canopy acrobat",
     sites: ["charity", "blog", "learning", "community", "travel", "directory", "event", "store"],
 
     name: "Emerald Tree Frog",
@@ -322,8 +328,8 @@ export const colorAnim: theme[] = [
     id: 7,
     defaultMode: "light",
     categories: ["corporate", "finance", "luxury", "technology", "education"],
+    tagline: "Golden-brown plumage, majestic apex predator",
     sites: ["dashboard", "startup", "agency", "portfolio", "landing", "learning", "magazine", "showcase"],
-
     name: "Golden Eagle",
     color: {
       light: {
@@ -373,6 +379,7 @@ export const colorAnim: theme[] = [
     id: 8,
     defaultMode: "light",
     categories: ["creative", "luxury", "entertainment", "personal", "ecommerce"],
+    tagline: "Shimmering purple wings, elegant forest glider",
     sites: ["portfolio", "showcase", "magazine", "gallery", "blog", "event", "landing"],
 
     name: "Emperor Butterfly",
@@ -424,6 +431,7 @@ export const colorAnim: theme[] = [
     id: 9,
     defaultMode: "light",
     categories: ["creative", "hospitality", "entertainment", "ecommerce", "personal"],
+    tagline: "Bright pink feathers, long graceful legs",
     sites: ["portfolio", "event", "blog", "restaurant", "hotel", "gallery", "landing"],
 
     name: "Flamingo",
@@ -475,6 +483,7 @@ export const colorAnim: theme[] = [
     id: 10,
     defaultMode: "light",
     categories: ["corporate", "technology", "developer", "finance", "education"],
+    tagline: "Thick gray fur, ghost of the mountains",
     sites: ["dashboard", "documentation", "startup", "portfolio", "learning", "agency", "landing"],
 
     name: "Snow Leopard",
@@ -526,6 +535,7 @@ export const colorAnim: theme[] = [
     id: 11,
     defaultMode: "light",
     categories: ["creative", "entertainment", "travel", "ecommerce", "community"],
+    tagline: "Bright red feathers, loud rainforest flyer",
     sites: ["portfolio", "gallery", "event", "travel", "store", "blog", "community", "landing"],
 
     name: "Scarlet Macaw",
@@ -577,6 +587,7 @@ export const colorAnim: theme[] = [
     id: 12,
     defaultMode: "dark",
     categories: ["technology", "creative", "startup", "gaming", "entertainment"],
+    tagline: "Rainbow colors, lightning-fast punch",
     sites: ["dashboard", "startup", "portfolio", "showcase", "gaming", "landing", "magazine", "gallery"],
 
     name: "Mantis Shrimp",
@@ -628,6 +639,7 @@ export const colorAnim: theme[] = [
     id: 13,
     defaultMode: "light",
     categories: ["corporate", "technology", "finance", "developer", "health"],
+    tagline: "White fur, arctic hunter",
     sites: ["dashboard", "documentation", "landing", "startup", "agency", "learning", "blog", "directory"],
 
     name: "Polar Bear",
@@ -679,6 +691,7 @@ export const colorAnim: theme[] = [
     id: 14,
     defaultMode: "light",
     categories: ["startup", "sports", "creative", "entertainment", "ecommerce"],
+    tagline: "Orange coat, black stripes, fierce solitary stalker",
     sites: ["landing", "startup", "store", "event", "portfolio", "gaming", "showcase", "community"],
 
     name: "Tiger",
@@ -730,6 +743,7 @@ export const colorAnim: theme[] = [
     id: 15,
     defaultMode: "dark",
     categories: ["technology", "developer", "creative", "gaming", "entertainment"],
+    tagline: "Jet-black feathers, highly intelligent shadow",
     sites: ["dashboard", "documentation", "portfolio", "gaming", "magazine", "blog", "showcase", "community"],
 
     name: "Raven",
@@ -781,6 +795,7 @@ export const colorAnim: theme[] = [
     id: 16,
     defaultMode: "light",
     categories: ["luxury", "creative", "entertainment", "ecommerce", "hospitality"],
+    tagline: "Colorful eyes, prideful tail",
     sites: ["portfolio", "gallery", "showcase", "store", "event", "magazine", "landing"],
 
     name: "Peacock",
@@ -832,6 +847,7 @@ export const colorAnim: theme[] = [
     id: 17,
     defaultMode: "light",
     categories: ["wellness", "education", "community", "nonprofit", "personal"],
+    tagline: "Fluffy gray fur, sleepy leaf eater",
     sites: ["blog", "learning", "community", "charity", "portfolio", "directory", "event", "store"],
 
     name: "Koala",
@@ -883,6 +899,7 @@ export const colorAnim: theme[] = [
     id: 18,
     defaultMode: "dark",
     categories: ["creative", "technology", "education", "entertainment", "personal"],
+    tagline: "Glowing yellow light, silent dusk dweller",
     sites: ["portfolio", "blog", "landing", "learning", "showcase", "gallery", "startup", "magazine"],
 
     name: "Firefly",
@@ -934,6 +951,7 @@ export const colorAnim: theme[] = [
     id: 19,
     defaultMode: "light",
     categories: ["developer", "corporate", "technology", "finance", "productivity"],
+    tagline: "Stark monochrome stripes, wild grassy runner",
     sites: ["dashboard", "documentation", "landing", "startup", "directory", "agency", "blog", "portal"],
 
     name: "Zebra",
@@ -985,6 +1003,7 @@ export const colorAnim: theme[] = [
     id: 20,
     defaultMode: "dark",
     categories: ["technology", "developer", "startup", "education", "research"],
+    tagline: "Eight clever arms, quick color con artist",
     sites: ["dashboard", "documentation", "startup", "learning", "portal", "blog", "showcase", "community"],
 
     name: "Octopus",

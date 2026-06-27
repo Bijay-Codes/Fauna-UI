@@ -46,7 +46,7 @@
     --border: oklch(61.367% 0.00155 285.687);
 }
 
-body {
+* body {
     background: var(--page-bg);
     transition: all 0.2s ease-in-out;
     color: var(--page-fg);

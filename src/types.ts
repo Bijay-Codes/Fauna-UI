@@ -26,6 +26,7 @@ export type theme = {
     id: number;
     defaultMode: 'light' | 'dark';
     categories: string[];
+    tagline: string
     sites: string[];
     name: string;
     color: {

@@ -1,85 +1,214 @@
-import { useState, useRef, useEffect } from "react";
-import { copyAs, copyAsBoth } from "../utils/helping-util";
+import { useEffect, useRef, useState } from "react";
+import type { theme as Theme, color as Color } from "../types";
 
-type Mode = "light" | "dark";
-type ColorObj = Record<string, string>;
-type BothModes = { light: ColorObj; dark: ColorObj };
+type Format = "css" | "tailwind" | "json" | "array" | "font";
+type Scope = "current" | "both";
 
-interface Props {
-    color: BothModes;
-    mode: Mode;
+interface CopyThemeButtonProps {
+    theme: Theme;
+    mode: "light" | "dark";
 }
 
-const FORMATS = ["css", "tailwind", "hex", "json"] as const;
+const FORMAT_LABELS: Record<Format, string> = {
+    css: "CSS Variables",
+    tailwind: "Tailwind Config",
+    json: "JSON",
+    array: "Color Array",
+    font: "Font Import",
+};
 
-export function CopyThemeButton({ color, mode }: Props) {
+const toVarName = (key: string) => `--${key.replace(/_/g, "-")}`;
+
+function buildCSSBlock(color: Color, selector: string, indent = "  ") {
+    const lines = Object.entries(color)
+        .map(([key, value]) => `${indent}${toVarName(key)}: ${value};`)
+        .join("\n");
+    return `${selector} {\n${lines}\n}`;
+}
+
+function buildTailwindBlock(color: Color, indent = "        ") {
+    return Object.entries(color)
+        .map(([key, value]) => `${indent}'${key.replace(/_/g, "-")}': '${value}',`)
+        .join("\n");
+}
+
+function generateOutput(theme: Theme, mode: "light" | "dark", format: Format, scope: Scope): string {
+    const { color, font, name } = theme;
+    const current = color[mode];
+
+    switch (format) {
+        case "css": {
+            if (scope === "current") {
+                return buildCSSBlock(current, ":root");
+            }
+            return `${buildCSSBlock(color.light, ":root")}
+            ${buildCSSBlock(color.dark, ".dark")}`;
+        }
+        case "tailwind": {
+            if (scope === "current") {
+                return `// tailwind.config.js
+                module.exports = {
+                theme: {
+                extend: {
+                colors: {
+                ${buildTailwindBlock(current)}
+     },
+    },
+  },
+}`;
+            }
+            return `// tailwind.config.js
+            module.exports = {
+            darkMode: 'class',
+            theme: {
+            extend: {
+            colors: {
+            light: {
+            ${buildTailwindBlock(color.light)}
+            },
+            dark: {
+            ${buildTailwindBlock(color.dark)}
+        },
+      },
+    },
+  },
+}`;
+        }
+        case "json": {
+            const data =
+                scope === "current"
+                    ? { name, mode, ...current }
+                    : { name, light: color.light, dark: color.dark };
+            return JSON.stringify(data, null, 2);
+        }
+
+        case "array": {
+            if (scope === "current") {
+                return `[\n${Object.values(current)
+                    .map((v) => `  "${v}"`)
+                    .join(",\n")}\n]`;
+            }
+            return `{\n  "light": [\n${Object.values(color.light)
+                .map((v) => `    "${v}"`)
+                .join(",\n")}\n  ],\n  "dark": [\n${Object.values(color.dark)
+                    .map((v) => `    "${v}"`)
+                    .join(",\n")}\n  ]\n}`;
+        }
+
+        case "font": {
+            const families = Array.from(new Set([font.main, font.body]));
+            const params = families
+                .map((f) => `family=${f.trim().replace(/\s+/g, "+")}:wght@400;500;600;700`)
+                .join("&");
+            return [
+                `<link rel="preconnect" href="https://fonts.googleapis.com">`,
+                `<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>`,
+                `<link href="https://fonts.googleapis.com/css2?${params}&display=swap" rel="stylesheet">`,
+            ].join("\n");
+        }
+    }
+}
+
+export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
     const [open, setOpen] = useState(false);
-    const [both, setBoth] = useState(false);
-    const [copied, setCopied] = useState<string | null>(null);
-    const ref = useRef<HTMLDivElement>(null);
+    const [format, setFormat] = useState<Format>("css");
+    const [scope, setScope] = useState<Scope>("current");
+    const [copied, setCopied] = useState(false);
+    const [copyFailed, setCopyFailed] = useState(false);
+    const wrapperRef = useRef<HTMLDivElement>(null);
+
+    const current = theme.color[mode];
+
+    const handleCopy = async () => {
+        const output = generateOutput(theme, mode, format, scope);
+        try {
+            await navigator.clipboard.writeText(output);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+        } catch {
+            setCopyFailed(true);
+            setTimeout(() => setCopyFailed(false), 1500);
+        }
+    };
 
     useEffect(() => {
-        if (!open) return;
-
-        const handleClickOutside = (e: MouseEvent) => {
-            if (ref.current && !ref.current.contains(e.target as Node)) {
+        const handleClick = (e: MouseEvent) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
                 setOpen(false);
             }
         };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [open]);
-
-    const handleCopy = async (format: typeof FORMATS[number]) => {
-        const text = both ? copyAsBoth(color, format) : copyAs(color[mode], format);
-        await navigator.clipboard.writeText(text);
-        setCopied(format);
-        setTimeout(() => setCopied(null), 1200);
-        setOpen(false);
-    };
+        document.addEventListener("mousedown", handleClick);
+        return () => document.removeEventListener("mousedown", handleClick);
+    }, []);
 
     return (
-        <div className="relative" ref={ref}>
+        <div className="relative inline-block" ref={wrapperRef}>
             <button
-                onClick={() => {
-                    setOpen(prev => !prev)
-
-                }}
-                className="px-4 py-1 rounded-xl"
-                style={{ background: color[mode].primary_bg, color: color[mode].primary_fg }}
+                className="px-3 py-1 rounded text-sm font-medium transition-opacity hover:opacity-90"
+                style={{ background: current.accent_bg, color: current.accent_fg }}
+                onClick={() => setOpen((o) => !o)}
             >
-                {copied ? `Copied as ${copied} ✓` : "Copy theme ▾"}
+                {copyFailed ? "Copy failed" : copied ? "Copied!" : "Copy theme ▾"}
             </button>
 
             {open && (
-                <div className="absolute mt-2 z-10 rounded-xl p-2 flex flex-col gap-1 shadow-lg"
-                    style={{ background: color[mode].primary_bg, color: color[mode].primary_fg }}>
-                    <label className="flex items-center gap-2 text-sm px-2 py-1">
-                        <input
-                            type="checkbox"
-                            checked={both}
-                            onChange={() => setBoth(prev => !prev)}
-                        />
-                        Both modes
-                    </label>
-                    <hr className="opacity-20" />
-                    {FORMATS.map(f => (
-                        <button
-                            key={f}
-                            onClick={() => handleCopy(f)}
-                            className="text-left text-sm px-2 py-1 rounded
-               bg-(--btn-bg) text-(--btn-fg)
-               hover:bg-(--btn-hover-bg) hover:text-(--btn-hover-fg)"
-                            style={{
-                                "--btn-bg": color[mode].primary_bg_bg,
-                                "--btn-fg": color[mode].primary_fg,
-                                "--btn-hover-bg": color[mode].accent_bg,
-                                "--btn-hover-fg": color[mode].accent_fg,
-                            } as React.CSSProperties}
-                        >
-                            {f}
-                        </button>))}
+                <div
+                    className="absolute z-10 mt-2 sm:w-64 w-50 rounded p-4 border"
+                    style={{
+                        background: current.surface_bg,
+                        color: current.surface_fg,
+                        borderColor: current.accent_bg,
+                    }}
+                >
+                    <div className="">
+                        <p className="text-xs uppercase tracking-wide opacity-70 mb-1">Format</p>
+                        <div className="flex flex-wrap gap-1">
+                            {(Object.keys(FORMAT_LABELS) as Format[]).map((f) => (
+                                <button
+                                    key={f}
+                                    className="px-2 py-1 rounded text-xs"
+                                    style={
+                                        format === f
+                                            ? { background: current.primary_bg, color: current.primary_fg }
+                                            : { background: current.secondary_bg, color: current.secondary_fg }
+                                    }
+                                    onClick={() => setFormat(f)}
+                                >
+                                    {FORMAT_LABELS[f]}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {format !== "font" && (
+                        <div className="mb-2">
+                            <p className="text-xs uppercase tracking-wide opacity-70 mb-1">Scope</p>
+                            <div className="flex gap-1">
+                                {(["current", "both"] as Scope[]).map((s) => (
+                                    <button
+                                        key={s}
+                                        className="px-2 rounded text-xs flex-1"
+                                        style={
+                                            scope === s
+                                                ? { background: current.primary_bg, color: current.primary_fg }
+                                                : { background: current.secondary_bg, color: current.secondary_fg }
+                                        }
+                                        onClick={() => setScope(s)}
+                                    >
+                                        {s === "current" ? `${mode} only` : "light + dark"}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    <button
+                        className="w-full px-2 mt-2 rounded text-sm font-medium"
+                        style={{ background: current.primary_bg, color: current.primary_fg }}
+                        onClick={handleCopy}
+                    >
+                        {copyFailed ? "Copy failed ✕" : copied ? "Copied to clipboard ✓" : "Copy"}
+                    </button>
                 </div>
             )}
         </div>

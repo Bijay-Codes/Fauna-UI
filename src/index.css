@@ -1,9 +1,5 @@
 @import 'tailwindcss';
 
-/* Light */
-root {
-    --border: oklch(61.367% 0.00155 285.687);
-}
 
 [data-theme="light"] {
     --page-bg: oklch(0.9862 0.0068 247.894);
@@ -24,6 +20,7 @@ root {
     --warning-fg: oklch(1 0 0);
     --danger-color: oklch(0.5054 0.1905 27.5181);
     --danger-fg: oklch(1 0 0);
+    --border: oklch(51.797% 0.00316 286.018);
 }
 
 /* Dark */
@@ -46,6 +43,7 @@ root {
     --warning-fg: oklch(0.2791 0.0742 45.6352);
     --danger-color: oklch(0.7106 0.1661 22.2162);
     --danger-fg: oklch(0.2575 0.0886 26.0418);
+    --border: oklch(61.367% 0.00155 285.687);
 }
 
 body {

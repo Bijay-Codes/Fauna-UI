@@ -15,7 +15,7 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
 
     return (
         <div className={`rounded-lg m-auto active:outline-0 max-w-250 min-w-[70%] grid grid-cols-[1fr_auto] p-2
-            ${homepage ? '' : 'sticky top-0 z-10 bg-(--page-bg)/40 border-b border-(--primary-bg)'}`}>
+            ${homepage ? '' : 'sticky top-0 z-10 bg-(--page-bg)/70 border-b border-(--primary-bg)'}`}>
             <input type="search"
                 value={text}
                 onKeyDown={(e) => {
@@ -24,15 +24,15 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
                 }}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Search"
-                className="bg-(--surface-bg) border border-(--surface-muted-bg) focus:bg-(--accent-bg)/40 hover:bg-(--accent-bg)/20
-                 outline-none rounded-l-lg rounded pl-2 w-full mask-r-from-90% p-2
+                className="bg-(--surface-bg) border border-(--surface-muted-bg) text-sm
+                 outline-none rounded-l-lg rounded pl-2 w-full mask-r-from-80% p-2
                  transition-colors duration-500 ease-in-out" />
             <button
 
                 onClick={() => {
                     handleSearch(text);
                 }}
-                className="bg-(--surface-bg) text-(--surface-fg) hover:bg-(--accent-bg) hover:text-(--accent-fg) active:bg-(--accent-bg)/40
+                className="bg-(--surface-bg) text-(--surface-fg) text-xs sm:text-md
                 transition-colors duration-500 ease-in-out
                  rounded-br-2xl rounded py-2 px-4"
             >Search</button>

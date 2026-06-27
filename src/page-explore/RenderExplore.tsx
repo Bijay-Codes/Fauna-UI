@@ -25,7 +25,7 @@ export function RenderExplore() {
         <div className="relative flex flex-col sm:gap-4 md:gap-10 w-full items-center max-w-300">
 
             <RenderSearch homepage={false} />
-            <div className="p-2 md:px-10 self-start">
+            <div className="p-2 md:px-10 sm:absolute sm:top-0 self-start">
                 <RenderFilter
                     activeFilters={subcategories}
                     onChangeFilters={setSubcategories}
@@ -42,7 +42,7 @@ export function RenderExplore() {
                     Clear filter ✕
                 </button>
             )}
-            <main className="flex flex-wrap py-4 rounded-lg justify-center gap-6 overflow-hidden">
+            <main className="flex flex-wrap py-4 justify-center gap-6 overflow-hidden">
                 {filtered.map(data => (
                     <RenderCard key={data.id} data={data} />
                 ))}

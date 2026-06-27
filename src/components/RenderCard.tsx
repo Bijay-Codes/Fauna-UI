@@ -28,7 +28,7 @@ export function RenderCards() {
 
 export function RenderCard({ data }: CardDataProps) {
     const [mode, setMode] = useState(data.defaultMode);
-    const { primary_bg, primary_fg, secondary_bg, accent_bg, surface_muted_bg, surface_bg } = data.color[mode];
+    const { primary_bg, primary_fg, secondary_bg, accent_bg, surface_muted_bg, surface_muted_fg, surface_bg } = data.color[mode];
     const colors = 'w-4 rounded aspect-square outline';
 
     return (
@@ -48,7 +48,7 @@ export function RenderCard({ data }: CardDataProps) {
                 }}
             >
                 <div className="text-2xl font-extrabold">{data.name}</div>
-                <div className="flex flex-wrap text-xs">
+                <div className="flex flex-wrap text-xs gap-2 items-center justify-center">
                     <span>[{data.font.main}]</span>
                     <span>[{data.font.body}]</span>
                 </div>
@@ -58,12 +58,12 @@ export function RenderCard({ data }: CardDataProps) {
                     <div className={colors} style={{ background: surface_bg }}></div>
                     <div className={colors} style={{ background: surface_muted_bg }}></div>
                 </div>
-                <div className="">
+                <div style={{ color: surface_muted_fg }}>
                     {data.categories.map((c, i) => {
                         if (i <= 3)
                             return (
                                 <span key={i} style={{ color: accent_bg }}>
-                                    [<span className="text-sm" style={{ color: primary_fg }}>{c}</span>]
+                                    [<span className="text-sm opacity-70" style={{ color: primary_fg }}>{c}</span>]
                                 </span>
                             );
                     })}

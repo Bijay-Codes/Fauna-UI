@@ -34,7 +34,7 @@ export function RenderFilter({ activeFilters = [], onChangeFilters }: RenderFilt
             <details
                 open={isOpen}
                 onToggle={(e) => setIsOpen((e.target as HTMLDetailsElement).open)}
-                className="relative z-20"
+                className="relative"
             >
                 <summary className="list-none cursor-pointer relative px-1 inline-flex items-center w-full bg-(--surface-bg) border border-(--surface-muted-bg) rounded">
                     <span>

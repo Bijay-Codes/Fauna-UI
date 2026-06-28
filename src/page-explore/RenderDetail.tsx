@@ -51,6 +51,7 @@ export function RenderDetail() {
                     </div>
                 </div>
                 <RenderIntro theme={card} mode={mode} />
+                <RenderTutorial theme={card} mode={mode} />
             </div>
             {mode == 'dark' ?
                 (
@@ -110,47 +111,11 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
     return (
         <section className="flex flex-col gap-10">
             {/* Colors pallate */}
-            <div className="flex flex-col gap-3">
-                <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
-                    Palette | {mode}
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                    {swatch.map(({ key, label, fgKey }) => (
-                        <div
-                            key={key}
-                            className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border border-slate-600"
-                            style={{ background: colors[key], color: colors[fgKey] }}
-                        >
-                            <span className="text-sm font-medium">{label}</span>
-                            <span className="text-[0.6rem] opacity-80 break-all">{colors[key]}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            <RenderColor colors={colors} mode={mode} />
             {/* Font suggestions */}
-            <div className="flex flex-col gap-3">
-                <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
-                    Typography
-                </h2>
-                <div
-                    className="flex flex-col gap-4 rounded-lg p-4"
-                    style={{ background: colors.surface_bg, color: colors.surface_fg }}
-                >
-                    <div>
-                        <div className="text-2xl" style={{ fontFamily: theme.font.main }}>
-                            {theme.name} sets the tone
-                        </div>
-                        <div className="text-xs mt-1 opacity-70 font-mono">Head | {theme.font.main}</div>
-                    </div>
-                    <div>
-                        <p className="text-sm" style={{ fontFamily: theme.font.body }}>
-                            Body copy renders in {theme.font.body}, built for longer reading without losing the theme's character.
-                        </p>
-                        <div className="text-xs mt-1 opacity-70 font-mono">Body | {theme.font.body}</div>
-                    </div>
-                </div>
-            </div>
+            <RenderFont theme={theme} mode={mode} />
             <hr className="border-t border-neutral-200 dark:border-neutral-800 my-4" />
+
             {/* Use case section */}
             <div className="flex flex-col gap-3">
                 <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
@@ -169,6 +134,7 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
                 </div>
             </div>
 
+            {/* Usage */}
             <div className="flex flex-col gap-3">
                 <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
                     Where can use it
@@ -190,6 +156,137 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
     )
 }
 
+function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }) {
+    return (
+        <div className="flex flex-col gap-3">
+            <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+                Palette | {mode}
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                {swatch.map(({ key, label, fgKey }) => (
+                    <div
+                        key={key}
+                        className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border border-slate-600"
+                        style={{ background: colors[key], color: colors[fgKey] }}
+                    >
+                        <span className="text-sm font-medium">{label}</span>
+                        <span className="text-[0.6rem] opacity-80 break-all">{colors[key]}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+    )
+};
+
+function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
+    const colors = theme.color[mode];
+
+    return (
+        <div className="flex flex-col gap-3">
+            <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+                Typography
+            </h2>
+            <div
+                className="flex flex-col gap-4 rounded-lg p-4"
+                style={{ background: colors.surface_bg, color: colors.surface_fg }}
+            >
+                <div>
+                    <div className="text-2xl" style={{ fontFamily: theme.font.main }}>
+                        {theme.name} sets the tone
+                    </div>
+                    <div className="text-xs mt-1 opacity-70 font-mono">Head | {theme.font.main}</div>
+                </div>
+                <div>
+                    <p className="text-sm" style={{ fontFamily: theme.font.body }}>
+                        Body copy renders in {theme.font.body}, built for longer reading without losing the theme's character.
+                    </p>
+                    <div className="text-xs mt-1 opacity-70 font-mono">Body | {theme.font.body}</div>
+                </div>
+            </div>
+        </div>
+
+    )
+}
+
+const useCases: { key: keyof color; label: string; useCase: string }[] = [
+    {
+        key: "page_bg",
+        label: "--page-bg",
+        useCase: "The base canvas color behind everything — sets the overall mood of the app.",
+    },
+    {
+        key: "surface_bg",
+        label: "--surface-bg",
+        useCase: "Background for cards, panels, modals — anything that sits slightly above the page.",
+    },
+    {
+        key: "surface_muted_bg",
+        label: "--surface-muted",
+        useCase: "A quieter surface for secondary panels, sidebars, or input fields that shouldn't compete for attention.",
+    },
+    {
+        key: "primary_bg",
+        label: "--primary-bg",
+        useCase: "Your main brand color — primary buttons, active links, key CTAs the user should notice first.",
+    },
+    {
+        key: "secondary_bg",
+        label: "--secondary-bg",
+        useCase: "Supports the primary color — secondary buttons, less critical actions, supporting UI accents.",
+    },
+    {
+        key: "accent_bg",
+        label: "--accent-bg",
+        useCase: "Used sparingly to draw the eye — badges, highlights, tags, or decorative emphasis.",
+    },
+    {
+        key: "success_color",
+        label: "--success-color",
+        useCase: "Confirms a positive outcome — saved changes, completed steps, passed checks.",
+    },
+    {
+        key: "warning_color",
+        label: "--warning-color",
+        useCase: "Flags caution — pending states, unsaved changes, things that need a second look.",
+    },
+    {
+        key: "danger_color",
+        label: "--danger-color",
+        useCase: "Signals something destructive or broken — errors, failed validation, delete actions.",
+    },
+];
+
+function RenderTutorial({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
+    const colors = theme.color[mode];
+
+    return (
+        <div className="flex flex-col gap-2">
+            <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+                Use cases
+            </h2>
+            <div className="flex flex-col gap-2">
+                {useCases.map(({ key, label, useCase }) => (
+                    <div
+                        key={key}
+                        className="flex gap-2 items-start rounded-lg p-2"
+                        style={{ background: colors.surface_bg, color: colors.surface_fg }}
+                    >
+                        <span
+                            className="w-4 h-4 rounded shrink-0 mt-0.5 border border-slate-600"
+                            style={{ background: colors[key] }}
+                        />
+                        <div className="flex flex-col gap-0.5">
+                            <span className="text-sm font-medium">{label}</span>
+                            <span className="text-xs opacity-75">{useCase}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <hr className="border-t border-neutral-200 dark:border-neutral-800 my-4" />
+        </div>
+    );
+}
 function RenderFooter() {
     return (
         <div className="flex flex-col gap-2 px-2 py-4 text-sm w-full text-center">

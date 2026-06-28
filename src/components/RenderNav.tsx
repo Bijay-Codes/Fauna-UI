@@ -10,7 +10,7 @@ export function RenderNav() {
             : "hover:bg-(--surface-muted-bg)"}`;
 
     return (
-        <nav className="h-13 w-full border-b border-(--accent-bg)/30">
+        <nav className="h-13 w-full border-b border-(--accent-bg)/30 prim-font">
             <div className="m-auto flex items-center py-4 sm:px-10 p-2">
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li>

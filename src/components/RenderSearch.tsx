@@ -15,7 +15,7 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
 
     return (
         <div className={`rounded-lg m-auto active:outline-0 max-w-250 min-w-[70%] grid grid-cols-[1fr_auto] p-2
-            ${homepage ? '' : 'sticky top-0 z-10 bg-(--page-bg)/70 border-b border-(--primary-bg)'}`}>
+            ${homepage ? '' : 'sticky top-0 z-40 bg-(--page-bg)/70 border-b border-(--primary-bg)'}`}>
             <input type="search"
                 value={text}
                 onKeyDown={(e) => {

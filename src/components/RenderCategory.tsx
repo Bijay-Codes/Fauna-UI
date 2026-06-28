@@ -8,7 +8,7 @@ export function RenderCategory({ homeview }: { homeview: boolean }) {
         <section className="p-4 flex flex-col gap-4 w-full text-(--surface-muted-fg)/50">
             {homeview && <div className="text-xl font-extrabold text-(--page-fg) border-b border-(--border)/80">Category</div>}
 
-            <div className="flex flex-wrap gap-4 text-xs">
+            <div className="flex flex-wrap gap-4 text-xs sec-font">
                 {category.map(c => (
                     <div
                         className="flex flex-col justify-center text-sm p-2

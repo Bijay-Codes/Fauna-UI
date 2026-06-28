@@ -144,7 +144,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
     return (
         <div className="relative inline-block" ref={wrapperRef}>
             <button
-                className="px-3 py-1 rounded text-sm font-medium transition-opacity hover:opacity-90"
+                className="px-3 py-1 rounded text-sm font-medium transition-opacity hover:opacity-90 sec-font"
                 style={{ background: current.accent_bg, color: current.accent_fg }}
                 onClick={() => setOpen((o) => !o)}
             >
@@ -161,12 +161,12 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                     }}
                 >
                     <div className="">
-                        <p className="text-xs uppercase tracking-wide opacity-70 mb-1">Format</p>
+                        <p className="text-xs uppercase tracking-wide opacity-70 mb-1 prim-font">Format</p>
                         <div className="flex flex-wrap gap-1">
                             {(Object.keys(FORMAT_LABELS) as Format[]).map((f) => (
                                 <button
                                     key={f}
-                                    className="px-2 py-1 rounded text-xs"
+                                    className="px-2 py-1 rounded text-xs sec-font"
                                     style={
                                         format === f
                                             ? { background: current.primary_bg, color: current.primary_fg }
@@ -182,7 +182,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
 
                     {format !== "font" && (
                         <div className="mb-2">
-                            <p className="text-xs uppercase tracking-wide opacity-70 mb-1">Scope</p>
+                            <p className="text-xs uppercase tracking-wide opacity-70 mb-1 prim-font">Scope</p>
                             <div className="flex gap-1">
                                 {(["current", "both"] as Scope[]).map((s) => (
                                     <button
@@ -203,7 +203,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                     )}
 
                     <button
-                        className="w-full px-2 mt-2 rounded text-sm font-medium"
+                        className="w-full px-2 mt-2 rounded text-sm font-medium prim-font"
                         style={{ background: current.primary_bg, color: current.primary_fg }}
                         onClick={handleCopy}
                     >

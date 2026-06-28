@@ -35,12 +35,14 @@ export function RenderDetail() {
                 className="flex flex-col gap-6 p-4
             max-w-300 m-auto"
             >
-                <Link to='/explore' className="underline">← Go back to Explore</Link>
+                <Link to='/explore' className="underline prim-font">← Go back to Explore</Link>
                 <RenderHero theme={card} mode={mode} />
                 <div className="flex flex-row sm:flex-col flex-wrap gap-4">
-                    <h1 className="text-2xl w-fit">Welcome to <span style={{ color: primary_bg }} className="font-extrabold">{name}</span> theme</h1>
-                    <div className="flex gap-2 flex-wrap">
-                        <h2>Active</h2>
+                    <h1 className="text-2xl w-fit font-medium">Welcome to <span style={{ color: primary_bg }} className="font-extrabold">
+                        {name}
+                    </span> theme</h1>
+                    <div className="flex gap-2 flex-wrap prim-font">
+                        <h2 className="opacity-80">Active</h2>
                         <button
                             className="px-2 rounded text-xs"
                             style={{ background: primary_bg, color: primary_fg }}
@@ -86,8 +88,8 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
             style={{
                 borderColor: colors.primary_bg,
             }}>
-            <div className="text-2xl">{theme.name}</div>
-            <div className="text-lg">{theme.tagline}</div>
+            <div className="text-2xl font-extrabold">{theme.name}</div>
+            <div className="text-lg font-bold opacity-60">{theme.tagline}</div>
             <CopyThemeButton theme={theme} mode={mode} />
         </main>
     )
@@ -121,11 +123,11 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
                 <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
                     Built for
                 </h2>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 sec-font">
                     {theme.categories.map(category => (
                         <span
                             key={category}
-                            className="text-sm px-2 py-1 rounded capitalize"
+                            className="text-sm px-2 py-1 rounded"
                             style={{ background: colors.accent_bg, color: colors.accent_fg }}
                         >
                             {category}
@@ -137,13 +139,13 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
             {/* Usage */}
             <div className="flex flex-col gap-3">
                 <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
-                    Where can use it
+                    Usage
                 </h2>
                 <div className="flex flex-wrap gap-2">
                     {theme.sites.map(site => (
                         <span
                             key={site}
-                            className="text-sm px-4 py-1 rounded capitalize"
+                            className="text-sm px-4 py-1 rounded sec-font"
                             style={{ background: colors.surface_muted_bg, color: colors.surface_muted_fg }}
                         >
                             {site}
@@ -170,7 +172,7 @@ function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }
                         style={{ background: colors[key], color: colors[fgKey] }}
                     >
                         <span className="text-sm font-medium">{label}</span>
-                        <span className="text-[0.6rem] opacity-80 break-all">{colors[key]}</span>
+                        <span className="text-[0.6rem] opacity-80 break-all sec-font">{colors[key]}</span>
                     </div>
                 ))}
             </div>
@@ -183,7 +185,7 @@ function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode];
 
     return (
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
             <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
                 Typography
             </h2>
@@ -195,13 +197,13 @@ function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
                     <div className="text-2xl" style={{ fontFamily: theme.font.main }}>
                         {theme.name} sets the tone
                     </div>
-                    <div className="text-xs mt-1 opacity-70 font-mono">Head | {theme.font.main}</div>
+                    <div className="text-xs mt-1 opacity-70 font-mono sec-font">Head | {theme.font.main}</div>
                 </div>
                 <div>
-                    <p className="text-sm" style={{ fontFamily: theme.font.body }}>
+                    <p className="text-sm sec-font" style={{ fontFamily: theme.font.body }}>
                         Body copy renders in {theme.font.body}, built for longer reading without losing the theme's character.
                     </p>
-                    <div className="text-xs mt-1 opacity-70 font-mono">Body | {theme.font.body}</div>
+                    <div className="text-xs mt-1 opacity-70 sec-font">Body | {theme.font.body}</div>
                 </div>
             </div>
         </div>
@@ -263,7 +265,7 @@ function RenderTutorial({ theme, mode }: { theme: theme; mode: 'dark' | 'light' 
     return (
         <div className="flex flex-col gap-2">
             <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
-                Use cases
+                color usage
             </h2>
             <div className="flex flex-col gap-2">
                 {useCases.map(({ key, label, useCase }) => (
@@ -276,7 +278,7 @@ function RenderTutorial({ theme, mode }: { theme: theme; mode: 'dark' | 'light' 
                             className="w-4 h-4 rounded shrink-0 mt-0.5 border border-slate-600"
                             style={{ background: colors[key] }}
                         />
-                        <div className="flex flex-col gap-0.5">
+                        <div className="flex flex-col gap-0.5 sec-font">
                             <span className="text-sm font-medium">{label}</span>
                             <span className="text-xs opacity-75">{useCase}</span>
                         </div>
@@ -292,7 +294,7 @@ function RenderFooter() {
         <div className="flex flex-col gap-2 px-2 py-4 text-sm w-full text-center">
             <p>Built solo, shaped by feedback.</p>
 
-            <p >
+            <p className="sec-font opacity-70" >
                 Have a theme idea, found a bug, or want to suggest something?{" "}
                 <a href="https://github.com/Bijay-Codes/fauna-ui/issues" className="underline"
                     target="_blank">
@@ -300,7 +302,7 @@ function RenderFooter() {
                 </a>{" "}
             </p>
 
-            <div className="flex gap-4 items-center justify-center">
+            <div className="flex gap-4 items-center justify-center sec-font opacity-80">
                 <a href="https://github.com/Bijay-Codes/fauna-ui" className="underline"
                     target="_blank">
                     GitHub ↗
@@ -311,7 +313,7 @@ function RenderFooter() {
                 </a>
             </div>
 
-            <p className="text-xs mt-2">
+            <p className="text-xs mt-2 sec-font opacity-70">
                 © 2026 Bijay. Built with React | Typescript & Tailwind.
             </p>
         </div>

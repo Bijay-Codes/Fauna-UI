@@ -26,15 +26,17 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Search"
                 className="bg-(--surface-bg) text-(--surface-fg) border border-(--surface-muted-bg) text-sm
+                hover:bg-(--secondary-bg)/50 focus:bg-(--secondary-bg) focus:text-(--secondary-fg)
                  outline-none rounded-l-lg rounded pl-2 w-full mask-r-from-80% p-2
                  transition-colors duration-500 ease-in-out" />
             <button
                 onClick={() => {
                     handleSearch(text);
                 }}
-                className="bg-(--surface-bg) text-(--surface-fg) text-xs sm:text-md prim-font
-                transition-colors duration-500 ease-in-out
-                 rounded-br-2xl rounded py-2 px-4"
+                className="bg-(--surface-bg) text-(--surface-fg) text-xs sm:text-md
+                hover:bg-(--secondary-bg) hover:text-(--secondary-fg) active:bg-(--accent-bg) active:text-(--accent-fg)
+                transition-colors duration-300 ease-in-out
+                rounded-br-2xl rounded py-2 px-4 prim-font"
             >Search</button>
         </div>
     )

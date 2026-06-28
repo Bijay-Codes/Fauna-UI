@@ -313,7 +313,7 @@ function RenderFooter() {
                 </a>
             </div>
 
-            <p className="text-xs mt-2 sec-font opacity-70">
+            <p className="text-xs mt-2 sec-font opacity-70 text-shadow-black text-shadow-2xs">
                 © 2026 Bijay. Built with React | Typescript & Tailwind.
             </p>
         </div>

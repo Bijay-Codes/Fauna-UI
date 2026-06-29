@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+:root {
+    --font-sans: 'YourFontName', ui-sans-serif, system-ui, sans-serif;
+}
 
 [data-theme="light"] {
     --page-bg: oklch(0.9862 0.0068 247.894);

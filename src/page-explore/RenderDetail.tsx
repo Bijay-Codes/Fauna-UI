@@ -30,7 +30,7 @@ export function RenderDetail() {
 
     return (
         <section style={{ background: page_bg, color: page_fg }}
-            className="transition-all duration-700 ease-in-out ">
+            className="transition-all duration-700 ease-in-out">
             <div
                 className="flex flex-col gap-6 p-4
             max-w-300 m-auto"
@@ -48,7 +48,7 @@ export function RenderDetail() {
                             style={{ background: primary_bg, color: primary_fg }}
                             onClick={toggle}
                         >
-                            [{mode}]
+                            [ {mode} ]
                         </button>
                     </div>
                 </div>

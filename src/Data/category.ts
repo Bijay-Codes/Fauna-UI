@@ -1,18 +1,26 @@
 export const category = [
     {
-        category: "Creative & Tech",
-        subcategories: ["creative", "technology", "developer", "gaming", "startup"]
+        category: "Software & Tech",
+        subcategories: ["technology", "developer", "saas", "security", "research"]
     },
     {
-        category: "Business & Commerce",
-        subcategories: ["corporate", "ecommerce", "finance", "luxury", "productivity"]
+        category: "Business & Finance",
+        subcategories: ["corporate", "finance", "fintech", "productivity", "startup"]
     },
     {
-        category: "Lifestyle & Well-being",
-        subcategories: ["entertainment", "travel", "hospitality", "personal", "health", "wellness", "sports"]
+        category: "Marketing & Commerce",
+        subcategories: ["ecommerce", "luxury", "marketing", "agency"]
     },
     {
-        category: "Knowledge & Purpose",
-        subcategories: ["education", "research", "community", "nonprofit"]
+        category: "Content & Portfolio",
+        subcategories: ["blog", "portfolio", "personal", "creative"]
+    },
+    {
+        category: "Entertainment & Leisure",
+        subcategories: ["gaming", "entertainment", "travel", "hospitality", "sports"]
+    },
+    {
+        category: "Social Impact & Wellness",
+        subcategories: ["education", "community", "nonprofit", "health", "wellness"]
     }
-]
+];

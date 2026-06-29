@@ -19,7 +19,7 @@ export function RenderNav() {
                         </NavLink>
                     </li>
                     <li className="flex-1"></li>
-                    <li><NavLink to="/" className={linkClass}>Home</NavLink></li>
+                    <li><NavLink to="/home" className={linkClass}>Home</NavLink></li>
                     <li><NavLink to="/explore" className={linkClass}>Explore</NavLink></li>
                     <button
                         className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"

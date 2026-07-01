@@ -22,7 +22,6 @@ export function RenderDetail() {
     const {
         page_bg, page_fg,
         primary_bg, primary_fg,
-        // secondary_bg, secondary_fg
     } = color[mode] || color[defaultMode];
 
     const toggle = () => {
@@ -39,44 +38,44 @@ export function RenderDetail() {
                 <Link to='/explore' className="underline prim-font">← Go back to Explore</Link>
                 <RenderHero theme={card} mode={mode} />
                 <div className="flex flex-row sm:flex-col flex-wrap gap-4">
-                    <h1 className="text-2xl w-fit font-medium">Welcome to <span style={{ color: primary_bg }} className="font-extrabold">
-                        {name}
-                    </span> theme</h1>
-                    <div className="flex gap-2 flex-wrap prim-font">
+                    <h1 className="text-xl w-fit font-medium">This page is using {name} theme</h1>
+                    <div className="flex gap-2 flex-wrap prim-font items-center">
                         <h2 className="opacity-80">Active</h2>
                         <button
-                            className="px-2 rounded text-xs"
+                            className="px-2 py-2 rounded text-xs capitalize"
                             style={{ background: primary_bg, color: primary_fg }}
                             onClick={toggle}
                         >
-                            [ {mode} ]
+                            [ {mode} ] <span className="animate-pulse">Toggle</span>
                         </button>
                     </div>
                 </div>
                 <RenderIntro theme={card} mode={mode} />
                 <RenderTutorial theme={card} mode={mode} />
             </div>
-            {mode == 'dark' ?
-                (
-                    <footer className="flex justify-center items-center text-sm mask-t-from-90%"
-                        style={
-                            {
-                                background: `linear-gradient(to bottom,
+            {
+                mode == 'dark' ?
+                    (
+                        <footer className="flex justify-center items-center text-sm mask-t-from-90%"
+                            style={
+                                {
+                                    background: `linear-gradient(to bottom,
                     transparent 40%,
                     ${primary_bg} 100%)`
+                                }}>
+                            <RenderFooter />
+                        </footer>
+                    ) :
+                    (
+                        <footer className="flex justify-center items-center text-sm rounded-t-xl"
+                            style={{
+                                background: primary_bg,
+                                color: primary_fg
                             }}>
-                        <RenderFooter />
-                    </footer>
-                ) :
-                (
-                    <footer className="flex justify-center items-center text-sm rounded-t-xl"
-                        style={{
-                            background: primary_bg,
-                            color: primary_fg
-                        }}>
-                        <RenderFooter />
-                    </footer>
-                )}
+                            <RenderFooter />
+                        </footer>
+                    )
+            }
 
         </section >
     );
@@ -87,10 +86,10 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     return (
         <main className="flex flex-col justify-center gap-4 sm:p-4 p-1 border-b-2"
             style={{
-                borderColor: colors.primary_bg,
+                borderColor: colors.accent_bg,
             }}>
-            <div className="text-2xl font-extrabold">{theme.name}</div>
-            <div className="text-lg font-bold opacity-60">{theme.tagline}</div>
+            <div className="text-2xl font-extrabold" style={{ color: colors.accent_bg }}>{theme.name}</div>
+            <div className="text-lg font-bold opacity-80" style={{ color: colors.page_fg }}>{theme.tagline}</div>
             <CopyThemeButton theme={theme} mode={mode} />
         </main>
     )
@@ -175,7 +174,7 @@ function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }
                             style={{ background: colors[key], color: colors[fgKey] }}
                         >
                             <span className="text-sm font-medium">{label}</span>
-                            <div className="flex gap-2 text-[0.6rem] opacity-90 sec-font">
+                            <div className="flex gap-2 text-[0.6rem] opacity-90 sec-font w-fit px-2 items-center">
                                 <span>
                                     {ratio} : 1
                                 </span>
@@ -280,7 +279,7 @@ function RenderTutorial({ theme, mode }: { theme: theme; mode: 'dark' | 'light' 
                 {useCases.map(({ key, label, useCase }) => (
                     <div
                         key={key}
-                        className="flex gap-2 items-start rounded-lg p-2"
+                        className="flex gap-2 items-start rounded-lg p-3 max-w-200"
                         style={{ background: colors.surface_bg, color: colors.surface_fg }}
                     >
                         <span
@@ -302,16 +301,14 @@ function RenderFooter() {
     return (
         <div className="flex flex-col gap-2 px-2 py-4 text-sm w-full text-center">
             <p>Built solo, shaped by feedback.</p>
-
-            <p className="sec-font opacity-70" >
+            <p className="sec-font opacity-60" >
                 Have a theme idea, found a bug, or want to suggest something?{" "}
                 <a href="https://github.com/Bijay-Codes/fauna-ui/issues" className="underline"
                     target="_blank">
-                    Open an issue on GitHub—
+                    Open an issue on GitHub —
                 </a>{" "}
             </p>
-
-            <div className="flex gap-4 items-center justify-center sec-font opacity-80">
+            <div className="flex gap-4 items-center justify-center sec-font opacity-60">
                 <a href="https://github.com/Bijay-Codes/fauna-ui" className="underline"
                     target="_blank">
                     GitHub ↗
@@ -322,7 +319,7 @@ function RenderFooter() {
                 </a>
             </div>
 
-            <p className="text-xs mt-2 sec-font opacity-70 text-shadow-black text-shadow-2xs">
+            <p className="text-xs mt-2 sec-font opacity-60 text-shadow-black text-shadow-2xs">
                 © 2026 Bijay. Built with React | Typescript & Tailwind.
             </p>
         </div>

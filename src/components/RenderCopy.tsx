@@ -145,10 +145,10 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
         <div className="relative inline-block" ref={wrapperRef}>
             <button
                 className="px-3 py-1 rounded text-sm font-medium transition-opacity hover:opacity-90 sec-font"
-                style={{ background: current.accent_bg, color: current.accent_fg }}
+                style={{ background: `linear-gradient(to bottom right, ${current.primary_bg},${current.accent_bg})`, color: current.accent_fg }}
                 onClick={() => setOpen((o) => !o)}
             >
-                {copyFailed ? "Copy failed" : copied ? "Copied!" : "Copy theme ▾"}
+                {copyFailed ? "Try again" : copied ? "Copied!" : "Copy theme ▾"}
             </button>
 
             {open && (
@@ -207,7 +207,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                         style={{ background: current.primary_bg, color: current.primary_fg }}
                         onClick={handleCopy}
                     >
-                        {copyFailed ? "Copy failed ✕" : copied ? "Copied to clipboard ✓" : "Copy"}
+                        {copyFailed ? "Try again ✕" : copied ? "Copied to clipboard ✓" : "Copy"}
                     </button>
                 </div>
             )}

@@ -14,8 +14,8 @@ function RenderMain() {
                     <h2>Pick a theme. See it actually work. Get back to code.</h2>
                 </div>
                 <div className="ml-auto p-4 flex gap-4">
-                    <button className="bg-(--primary-bg) text-(--primary-fg) tracking-tighter
-                    py-1 px-2 rounded-lg">Try now</button>
+                    <button className="bg-(--primary-bg) text-(--primary-fg)
+                    py-1 px-2 rounded-lg">Browse Themes</button>
                     <button className="bg-(--secondary-bg) text-(--secondary-fg) px-2 rounded">Github</button>
                 </div>
             </main>

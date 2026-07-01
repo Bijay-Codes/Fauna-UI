@@ -14,12 +14,12 @@ export function RenderNav() {
             <div className="m-auto flex items-center py-4 sm:px-10 p-2">
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li>
-                        <NavLink to="/" className='text-md sm:text-2xl tracking-widest'>
+                        <NavLink to="/intro" className='text-md sm:text-2xl tracking-widest'>
                             Fauna<span className="text-(--primary-bg)">UI</span>
                         </NavLink>
                     </li>
                     <li className="flex-1"></li>
-                    <li><NavLink to="/home" className={linkClass}>Home</NavLink></li>
+                    <li><NavLink to="/" className={linkClass}>Home</NavLink></li>
                     <li><NavLink to="/explore" className={linkClass}>Explore</NavLink></li>
                     <button
                         className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"

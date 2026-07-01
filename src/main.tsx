@@ -10,8 +10,8 @@ createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
     <RenderNav />
     <Routes>
-      <Route path='/' element={<RenderLandingPage />} />
-      <Route path="/home" element={<App />} />
+      <Route path='/intro' element={<RenderLandingPage />} />
+      <Route path="/" element={<App />} />
       <Route path='/explore' element={<div className='flex items-center justify-center'><RenderExplore /></div>} />
       <Route path='/explore/:id' element={<RenderDetail />} />
     </Routes>

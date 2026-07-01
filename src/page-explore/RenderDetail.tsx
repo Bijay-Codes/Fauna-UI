@@ -2,6 +2,7 @@ import { useState } from "react";
 import { colorAnim } from "../Data/animalsData";
 import { Link, useParams } from "react-router-dom";
 import { CopyThemeButton } from "../components/RenderCopy";
+import { getWCAGRating } from "../test";
 import type { theme, color } from "../types";
 export function RenderDetail() {
     const { id } = useParams<{ id: string }>();
@@ -61,7 +62,7 @@ export function RenderDetail() {
                         style={
                             {
                                 background: `linear-gradient(to bottom,
-                    transparent 20%,
+                    transparent 40%,
                     ${primary_bg} 100%)`
                             }}>
                         <RenderFooter />
@@ -94,18 +95,6 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
         </main>
     )
 }
-
-const swatch: { key: keyof color, label: string, fgKey: keyof color }[] = [
-    { key: "page_bg", label: "Page", fgKey: "page_fg" },
-    { key: "surface_bg", label: "Surface", fgKey: "surface_fg" },
-    { key: "surface_muted_bg", label: "Surface muted", fgKey: "surface_muted_fg" },
-    { key: "primary_bg", label: "Primary", fgKey: "primary_fg" },
-    { key: "secondary_bg", label: "Secondary", fgKey: "secondary_fg" },
-    { key: "accent_bg", label: "Accent", fgKey: "accent_fg" },
-    { key: "success_color", label: "Success", fgKey: "success_fg" },
-    { key: "warning_color", label: "Warning", fgKey: "warning_fg" },
-    { key: "danger_color", label: "Danger", fgKey: "danger_fg" },
-];
 
 function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode];
@@ -158,6 +147,18 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
     )
 }
 
+const swatch: { key: keyof color, label: string, fgKey: keyof color }[] = [
+    { key: "page_bg", label: "Page", fgKey: "page_fg" },
+    { key: "surface_bg", label: "Surface", fgKey: "surface_fg" },
+    { key: "surface_muted_bg", label: "Surface muted", fgKey: "surface_muted_fg" },
+    { key: "primary_bg", label: "Primary", fgKey: "primary_fg" },
+    { key: "secondary_bg", label: "Secondary", fgKey: "secondary_fg" },
+    { key: "accent_bg", label: "Accent", fgKey: "accent_fg" },
+    { key: "success_color", label: "Success", fgKey: "success_fg" },
+    { key: "warning_color", label: "Warning", fgKey: "warning_fg" },
+    { key: "danger_color", label: "Danger", fgKey: "danger_fg" },
+];
+
 function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }) {
     return (
         <div className="flex flex-col gap-3">
@@ -165,19 +166,27 @@ function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }
                 Palette | {mode}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {swatch.map(({ key, label, fgKey }) => (
-                    <div
-                        key={key}
-                        className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border border-slate-600"
-                        style={{ background: colors[key], color: colors[fgKey] }}
-                    >
-                        <span className="text-sm font-medium">{label}</span>
-                        <span className="text-[0.6rem] opacity-80 break-all sec-font">{colors[key]}</span>
-                    </div>
-                ))}
+                {swatch.map(({ key, label, fgKey }) => {
+                    const { ratio, rating } = getWCAGRating(colors[key], colors[fgKey]);
+                    return (
+                        <div
+                            key={key}
+                            className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border border-slate-600"
+                            style={{ background: colors[key], color: colors[fgKey] }}
+                        >
+                            <span className="text-sm font-medium">{label}</span>
+                            <div className="flex gap-2 text-[0.6rem] opacity-90 sec-font">
+                                <span>
+                                    {ratio} : 1
+                                </span>
+                                <span>||</span>
+                                <span>{rating}</span>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
-
     )
 };
 

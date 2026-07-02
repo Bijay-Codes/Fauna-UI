@@ -1,5 +1,6 @@
 // src/components/RenderCards.tsx
 import { colorAnim } from "../Data/animalsData";
+import { getBestTheme } from "../utils/helping-util";
 import type { theme } from "../types";
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,7 @@ interface CardDataProps {
 }
 
 export function RenderCards() {
-    const data = colorAnim.slice(0, 4);
+    const data = getBestTheme(colorAnim);
     return (
         <section className="flex flex-col p-4">
             <div className="text-xl font-extrabold tracking-tight">Hot picks</div>

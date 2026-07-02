@@ -89,7 +89,7 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
             style={{
                 borderColor: colors.accent_bg,
             }}>
-            <div className="text-2xl font-extrabold" style={{ color: colors.accent_bg }}>{theme.name}</div>
+            <div className="text-2xl font-extrabold text-shadow-2xs " style={{ color: colors.accent_bg }}>{theme.name}</div>
             <div className="text-lg font-bold opacity-80" style={{ color: colors.page_fg }}>{theme.tagline}</div>
             <CopyThemeButton theme={theme} mode={mode} />
         </main>

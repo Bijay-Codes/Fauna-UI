@@ -1,10 +1,9 @@
 import { getBestTheme } from "../utils/helping-util";
 import { colorAnim } from "../Data/animalsData"
 import { sliceMetaData } from "../utils/helping-util";
+import { Link } from "react-router-dom";
 import type { theme } from "../types";
-// import { useState } from "react";
 export function RenderLandingCards() {
-    // const [activeTheme, setTheme] = useState(null);
     const cardsToRender = getBestTheme(colorAnim);
     return (
         <section className="
@@ -13,7 +12,7 @@ export function RenderLandingCards() {
             <h3 className="p-4 text-lg border-b border-(--accent-bg)">
                 Pick a theme — see it work
             </h3>
-            <div className="flex gap-4 overflow-auto p-4">
+            <div className="flex gap-4 overflow-auto custom-scroll p-4">
                 {cardsToRender.map(card => {
                     return (
                         <RenderThemeSwatch key={card.name} data={card} />
@@ -30,7 +29,6 @@ function RenderThemeSwatch({ data }: { data: theme }) {
     const colorSwatch = 'w-4 h-4 border rounded';
     return (
         <div className="w-50 aspect-square shrink-0
-        hover:-translate-y-0.5
         flex flex-col items-center gap-2
         rounded p-4 shadow"
             style={{
@@ -68,12 +66,12 @@ function RenderThemeSwatch({ data }: { data: theme }) {
                     <span key={c}>[ {c} ]</span>
                 )}
             </div>
-            <button className="px-4 rounded"
+            <Link to={`/explore/${data.id}`} className="px-4 rounded"
                 style={{
                     background: color.accent_bg,
                     color: color.accent_fg
                 }}
-            >Apply</button>
+            >Visit</Link>
         </div>
     )
 };

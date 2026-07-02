@@ -9,8 +9,7 @@ export function RenderLandingPage() {
 function RenderMain() {
     return (
         <section className=" py-4 sm:py-6 sm:px-6 px-4 gap-6
-        flex flex-col items-center justify-center w-screen max-w-300 m-auto
-         ">
+        flex flex-col items-center justify-center w-screen max-w-300 m-auto">
             <main className="sm:grid sm:grid-cols-2 flex flex-wrap items-center px-4 py-6">
                 <div className="flex flex-col gap-2">
                     <h1 className="text-2xl sm:text-4xl font-extrabold tracking-widest">Fauna<span className="text-(--accent-bg)">UI</span></h1>

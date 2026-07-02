@@ -52,7 +52,8 @@ export function RenderFilter({ activeFilters = [], onChangeFilters }: RenderFilt
                             c.subcategories.map(sc => (
                                 <div key={sc} className="flex items-center gap-2 
                                 hover:bg-(--accent-bg) hover:text-(--accent-fg) hover:-translate-y-0.5
-                                transition-all duration-300 ease-in-out rounded px-2">
+                                transition-all duration-300 ease-in-out rounded px-2"
+                                >
                                     <input
                                         className="accent-(--accent-bg)"
                                         type="checkbox"
@@ -60,7 +61,8 @@ export function RenderFilter({ activeFilters = [], onChangeFilters }: RenderFilt
                                         checked={activeFilters?.includes(sc) || false}
                                         onChange={(e) => handleCheckboxChange(sc, e.target.checked)}
                                     />
-                                    <label htmlFor={sc} className="cursor-pointer text-sm select-none">{sc}</label>
+                                    <label htmlFor={sc} className="cursor-pointer text-sm select-none"
+                                    >{sc}</label>
                                 </div>
                             ))
                         )}

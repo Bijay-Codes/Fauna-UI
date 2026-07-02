@@ -66,10 +66,10 @@ function RenderThemeSwatch({ data }: { data: theme }) {
                     <span key={c}>[ {c} ]</span>
                 )}
             </div>
-            <Link to={`/explore/${data.id}`} className="px-4 rounded"
+            <Link to={`/explore/${data.id}`} className="px-4 rounded hover:opacity-90"
                 style={{
                     background: color.accent_bg,
-                    color: color.accent_fg
+                    color: color.accent_fg,
                 }}
             >Visit</Link>
         </div>

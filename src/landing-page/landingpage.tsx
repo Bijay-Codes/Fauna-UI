@@ -2,6 +2,7 @@ import { RenderLandingCards } from "./landingcards"
 import { RenderFeatures } from "./RenderFeatures"
 import { RenderAboutSection } from "./RenderAbout"
 import { RenderFooter } from "./Renderfooter"
+import { Link } from "react-router-dom"
 export function RenderLandingPage() {
     return <RenderMain />
 }
@@ -21,9 +22,13 @@ function RenderMain() {
                     </h3>
                 </div>
                 <div className="sm:ml-auto py-2 sm:p-4 flex gap-4">
-                    <button className="bg-(--accent-bg) text-(--accent-fg)
-                    sm:py-1 px-2 rounded-lg">Browse Themes</button>
-                    <button className="bg-(--primary-bg) text-(--primary-fg) px-2 rounded">Github</button>
+                    <Link to={'/explore'} className="bg-(--accent-bg) text-(--accent-fg)
+                    sm:py-1 px-2 rounded-lg">Browse Themes</Link>
+                    <a target="_blank"
+                        href="https://github.com/Bijay-Codes/Fauna-UI"
+                        className="bg-(--primary-bg) text-(--primary-fg) px-2 rounded inline-flex items-center">
+                        Github
+                    </a>
                 </div>
             </main>
             <RenderLandingCards />

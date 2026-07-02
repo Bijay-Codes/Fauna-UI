@@ -41,7 +41,7 @@ export function RenderCard({ data }: CardDataProps) {
             <div
                 className="w-60 aspect-square rounded-lg text-center
                 flex flex-col gap-4 p-4 justify-center items-center
-                hover:-translate-y-1 border-(--primary-bg) hover:border-l-4 hover:border-r-4
+                hover:-translate-y-0.5 border-(--primary-bg) hover:border-l-4 hover:border-r-4
                 transition-all duration-100 ease-in sec-font"
                 style={{
                     background: primary_bg,

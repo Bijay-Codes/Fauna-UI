@@ -5,6 +5,7 @@ export function RenderFeatures() {
         "Browse themes by what you're building",
         'Copy in format you will use'
     ]
+    const formatStyles = 'bg-(--accent-bg) text-(--accent-fg) px-2 py-1 rounded'
     return (
         <section className="p-2 self-start flex flex-col gap-4">
             <h4 className="py-4 text-xl font-bold"><span className="text-(--accent-bg)">#</span> What you actually get</h4>
@@ -20,7 +21,14 @@ export function RenderFeatures() {
                     )
                 })}
             </ul>
-            <span className="text-xs text-(--surface-muted-fg)">Tailwind config | CSS variables | Simple array | JSON</span>
+            <span className="text-xs flex gap-2 items-center">
+                <span className={formatStyles}>Tailwind config </span>
+                |
+                <span className={formatStyles}>CSS variables</span>
+                |
+                <span className={formatStyles}>Simple array</span>
+                |
+                <span className={formatStyles}> JSON</span></span>
         </section>
     )
 }

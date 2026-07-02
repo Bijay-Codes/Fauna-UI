@@ -1,6 +1,6 @@
 export function RenderAboutSection() {
     return (
-        <article>
+        <article className="bg-(--surface-bg) rounded pb-4 px-4">
             <h4 className="text-xl py-4 font-bold"><span className="text-(--accent-bg) ">#</span> Why this Exists</h4>
             <div className="text-sm text-(--surface-muted-fg) flex flex-col gap-6">
                 <p>
@@ -20,7 +20,6 @@ export function RenderAboutSection() {
                     get colors back, convert them, check contrast, pick fonts, import them — Nope i dont have that much paitence when i just want to build sites fast to learn new things.
                 </p>
             </div>
-            <hr className="mt-6 w-full opacity-30" />
         </article>
     )
 }

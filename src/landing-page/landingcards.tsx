@@ -10,7 +10,9 @@ export function RenderLandingCards() {
         <section className="
         bg-(--surface-bg)/30 border-(--border)/40 border-t border-l border-r 
         w-full rounded-lg">
-            <h3 className="p-4 underline underline-offset-8">Pick a theme — see it work</h3>
+            <h3 className="p-4 text-lg border-b border-(--accent-bg)">
+                Pick a theme — see it work
+            </h3>
             <div className="flex gap-4 overflow-auto p-4">
                 {cardsToRender.map(card => {
                     return (
@@ -28,6 +30,7 @@ function RenderThemeSwatch({ data }: { data: theme }) {
     const colorSwatch = 'w-4 h-4 border rounded';
     return (
         <div className="w-50 aspect-square shrink-0
+        hover:-translate-y-0.5
         flex flex-col items-center gap-2
         rounded p-4 shadow"
             style={{

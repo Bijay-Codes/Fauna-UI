@@ -7,7 +7,7 @@ export function filterCategory(arr: string[], list: theme[]): theme[] {
 }
 
 export function getBestTheme(colorAnim: theme[]) {
-    const themeID = [18, 8, 2, 29];
+    const themeID = [18, 3, 5, 29];
     return colorAnim.filter(theme => themeID.includes(theme.id));
 }
 

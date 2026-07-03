@@ -1,3 +1,14 @@
+// add new category or change which of it exists here
+// category = display name
+// subcategory = the category metadata of the theme object
+/*
+theme = {
+    name: cat,
+    category:[these subcategories per theme]
+    blah,
+    blah
+}
+*/
 export const category = [
     {
         category: "Software & Tech",

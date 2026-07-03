@@ -2,7 +2,7 @@ import { useTheme } from "./themeManager";
 import { NavLink } from "react-router-dom";
 
 export function RenderNav() {
-    const { toggle } = useTheme();
+    const { toggle } = useTheme(); // theme switcher {theme current, set theme current}
 
     const linkClass = ({ isActive }: { isActive: boolean }) =>
         `rounded-lg transition-colors text-xs p-1
@@ -15,12 +15,15 @@ export function RenderNav() {
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li>
                         <NavLink to="/intro" className='text-md sm:text-2xl tracking-widest'>
+                            {/* go to landing page */}
                             Fauna<span className="text-(--primary-bg)">UI</span>
                         </NavLink>
                     </li>
                     <li className="flex-1"></li>
-                    <li><NavLink to="/" className={linkClass}>Home</NavLink></li>
-                    <li><NavLink to="/explore" className={linkClass}>Explore</NavLink></li>
+                    <li><NavLink to="/" className={linkClass}>Home</NavLink></li>{/* link to homepage */}
+                    <li><NavLink to="/explore" className={linkClass}>Explore</NavLink></li>{/* link to explore */}
+
+                    {/* dark mode? light mode? theme toggle button resides below ˅ */}
                     <button
                         className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"
                         onClick={toggle}

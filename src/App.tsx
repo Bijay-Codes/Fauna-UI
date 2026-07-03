@@ -1,4 +1,3 @@
-import './App.css'
 import { RenderCards } from './components/RenderCard'
 import { RenderSearch } from './components/RenderSearch'
 import { RenderCategory } from './components/RenderCategory'

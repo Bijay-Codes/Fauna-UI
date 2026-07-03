@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 export function RenderLandingPage() {
     return <RenderMain />
 }
-
+// Gonna edit? just dont bluff whats not true
 function RenderMain() {
     return (
         <section className=" py-4 sm:py-6 sm:px-6 px-4 gap-6

@@ -8,6 +8,15 @@ interface CardDataProps {
     data: theme;
 }
 
+// [animal,meaw,blah,blah] => card max 4 as of now card =>
+/*
+_____________________
+| name              |
+| fonts             |   
+| colors swatch     |   x 4 or more depending on how many we put in array data[]
+| category          |
+_____________________
+*/
 export function RenderCards() {
     const data = getBestTheme(colorAnim);
     return (
@@ -26,6 +35,15 @@ export function RenderCards() {
     );
 }
 
+// Rensonsible for rendering card in a good format and inject colors from the theme object
+/* data is theme {
+    color:{
+        light:{colors,blah, blah},
+        dark:{colors,blah,blah}
+        }
+    }
+*/
+// also go to explore on click of card using link...
 export function RenderCard({ data }: CardDataProps) {
     const mode = data.defaultMode
     const {

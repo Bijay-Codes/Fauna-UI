@@ -1,6 +1,9 @@
 @import 'tailwindcss';
 
-
+/* uncomment below to debug overflowing elements */
+/* * {
+    outline: 1px solid greenyellow;
+} */
 
 [data-theme="light"] {
     --page-bg: oklch(0.9862 0.0068 247.894);

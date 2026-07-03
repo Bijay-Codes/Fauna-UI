@@ -7,10 +7,10 @@ interface RenderFilterProps {
 }
 
 export function RenderFilter({ activeFilters = [], onChangeFilters }: RenderFilterProps) {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false); // is the filter open? ask this guy here
 
     const handleCheckboxChange = (sc: string, isChecked: boolean) => {
-        const currentFilters = activeFilters || [];
+        const currentFilters = activeFilters || []; // the filters already filtering
         let updatedFilters: string[];
 
         if (isChecked) {
@@ -36,6 +36,7 @@ export function RenderFilter({ activeFilters = [], onChangeFilters }: RenderFilt
                 onToggle={(e) => setIsOpen((e.target as HTMLDetailsElement).open)}
                 className="relative"
             >
+                {/* Want to edit how the filter button is shown? change it below this line in span elem */}
                 <summary className="list-none cursor-pointer relative px-1 inline-flex items-center w-full bg-(--surface-bg) border border-(--surface-muted-bg) rounded z-30">
                     <span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
@@ -44,6 +45,7 @@ export function RenderFilter({ activeFilters = [], onChangeFilters }: RenderFilt
                     </span>
                     <span className="prim-font">Filter</span>
                 </summary>
+                {/* The buttons to select the filters */}
                 <div className="absolute p-2 bg-(--surface-bg) border border-(--surface-muted-bg)
                 w-max min-w-30 sm:min-w-40 sm:max-h-80 max-h-60
                 overflow-y-auto z-30 sec-font rounded-lg">

@@ -37,11 +37,13 @@ function RenderThemeSwatch({ data }: { data: theme }) {
             }}>
             <h1 className="text-md sec-font font-extrabold">{data.name}</h1>
             <div className="text-xs sec-font text-center">
+                {/* Fonts of theme */}
                 <h2 className="opacity-90">{data.font.main}</h2>
                 <h2 className="opacity-80">{data.font.body}</h2>
             </div>
             <h2></h2>
             <div className="flex gap-2">
+                {/* Color swatches of the card */}
                 <span
                     className={colorSwatch}
                     style={{
@@ -63,6 +65,7 @@ function RenderThemeSwatch({ data }: { data: theme }) {
             </div>
             <div className="text-xs sec-font flex flex-wrap m-auto gap-x-1 opacity-70">
                 {sliceMetaData(data.categories, 2).map(c =>
+                    // answers the where to use this theme question
                     <span key={c}>[ {c} ]</span>
                 )}
             </div>

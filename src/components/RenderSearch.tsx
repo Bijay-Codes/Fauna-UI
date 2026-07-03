@@ -6,6 +6,7 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
     const [text, setText] = useState('');
     const navigate = useNavigate();
     function handleSearch(text: string) {
+        // security guard ˅
         const querry = text.trim()
         if (!querry) return;
         const normalText = querry.toLowerCase();

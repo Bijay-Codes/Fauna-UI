@@ -82,6 +82,16 @@ export function RenderDetail() {
     );
 }
 
+
+/* Structure
+    _________________________
+    |       name            |
+    |      Tagline          |
+    |     Copy button       |
+    _________________________
+    
+*/
+
 function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode]
     return (
@@ -89,8 +99,16 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
             style={{
                 borderColor: colors.accent_bg,
             }}>
-            <div className="text-2xl font-extrabold text-shadow-2xs " style={{ color: colors.accent_bg }}>{theme.name}</div>
-            <div className="text-lg font-bold opacity-80" style={{ color: colors.page_fg }}>{theme.tagline}</div>
+            <div
+                className="text-2xl font-extrabold text-shadow-2xs"
+                style={{ color: colors.accent_bg }}>
+                {theme.name}
+            </div>
+            <div
+                className="text-lg font-bold opacity-80"
+                style={{ color: colors.page_fg }}>
+                {theme.tagline}
+            </div>
             <CopyThemeButton theme={theme} mode={mode} />
         </main>
     )

@@ -1,4 +1,12 @@
-import type { theme } from "../types";
+import type { theme } from "../types"; // gloabl types of the theme data structure
+// import { showStructure } from "../utils/helping-util";
+
+// open this but dont change without a clear goal and ABSOLUTELY DONT BREAK IT
+// Hmmm dont open it at alll
+// wanna see the data structure? ˅ uncomment the below one and paste it at bottom
+// uncomment the import too
+
+// showStructure(colorAnim);
 
 export const colorAnim: theme[] = [
   {

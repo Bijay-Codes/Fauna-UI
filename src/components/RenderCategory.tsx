@@ -1,9 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { category } from "../Data/category";
 
+// Too simple to explain, use the colors we have and link to the explore page
+//  used for filtering by category mechanism
 export function RenderCategory({ homeview }: { homeview: boolean }) {
     const navigate = useNavigate();
-    const tags = homeview ? 2 : 1;
+    const tags = homeview ? 2 : 1; // not being used actively but can be used when we decide to render category in explore page too
     return (
         <section className="p-4 flex flex-col gap-4 w-full text-(--surface-muted-fg)/50">
             {homeview && <div className="text-xl font-extrabold text-(--page-fg) border-b border-(--border)/80">Category</div>}

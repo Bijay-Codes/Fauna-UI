@@ -5,6 +5,35 @@
     outline: 1px solid greenyellow;
 } */
 
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+[data-theme="light"] .logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .logo-light {
+    display: none;
+}
+
+.logo,
+.fade-left {
+    animation: fadeIN 0.7s ease-in-out;
+}
+
+@keyframes fadeIN {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
 [data-theme="light"] {
     --page-bg: oklch(0.9862 0.0068 247.894);
     --page-fg: oklch(0.2077 0.0398 265.7549);

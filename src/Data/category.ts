@@ -16,7 +16,7 @@ export const category = [
     },
     {
         category: "Business & Finance",
-        subcategories: ["corporate", "finance", "fintech", "productivity", "startup"]
+        subcategories: ["corporate", "finance", "fintech", "productivity", "startup", "enterprise"]
     },
     {
         category: "Marketing & Commerce",
@@ -24,14 +24,14 @@ export const category = [
     },
     {
         category: "Content & Portfolio",
-        subcategories: ["blog", "portfolio", "personal", "creative"]
+        subcategories: ["blog", "portfolio", "personal", "creative", "news"]
     },
     {
         category: "Entertainment & Leisure",
-        subcategories: ["gaming", "entertainment", "travel", "hospitality", "sports"]
+        subcategories: ["gaming", "entertainment", "travel", "hospitality", "sports", "lifestyle", "music"]
     },
     {
         category: "Social Impact & Wellness",
-        subcategories: ["education", "community", "nonprofit", "health", "wellness"]
+        subcategories: ["education", "community", "nonprofit", "health", "wellness", "fitness"]
     }
 ];

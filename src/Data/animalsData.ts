@@ -1469,7 +1469,7 @@ export const colorAnim: theme[] = [
     id: 29,
     name: "Honey Badger",
     defaultMode: "dark",
-    categories: ["fintech", "dev-tools", "enterprise"],
+    categories: ["fintech", "developer", "enterprise"],
     sites: ["api-documentation", "crypto-exchange", "security-admin"],
     tagline: "Doesn't care. Looks great doing it.",
     color: {
@@ -1622,7 +1622,7 @@ export const colorAnim: theme[] = [
     id: 32,
     name: "Tarsier",
     defaultMode: "light",
-    categories: ["education", "kids", "interactive"],
+    categories: ["education"],
     sites: ["learning-platform", "storytelling-app", "interactive-workbook"],
     tagline: "Wide-eyed wonder, structured lessons.",
     color: {

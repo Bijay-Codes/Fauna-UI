@@ -3,6 +3,7 @@ export function RenderFeatures() {
         'Heading and body font, already paired',
         'Status colors paired with themes',
         "Browse themes by what you're building",
+        '40 themes to choose from- More coming',
         'Copy in format you will use'
     ]
     const formatStyles = 'bg-(--accent-bg) text-(--accent-fg) px-2 py-1 rounded'

@@ -12,10 +12,24 @@ export function RenderDetail() {
 
     if (!card) {
         return (
-            <section>
-                <Link to='/explore' className="underline">← Go back to Explore</Link>
-                <div className="mt-4">Theme not found.</div>
-            </section>
+            <section className="flex flex-col justify-center sm:items-start items-center p-6 gap-6 max-200">
+                <Link to='/explore' className="underline underline-offset-8 hover:text-(--success-color) text-xl">← Go back to Explore</Link>
+                <div className="mt-4 p-4 rounded-lg bg-(--danger-color) flex items-center gap-2 text-(--danger-fg) text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                        <path fill="currentColor" fillRule="evenodd" d="M7.843 3.802C9.872 2.601 10.886 2 12 2s2.128.6 4.157 1.802l.686.406c2.029 1.202 3.043 1.803 3.6 2.792c.557.99.557 2.19.557 4.594v.812c0 2.403 0 3.605-.557 4.594s-1.571 1.59-3.6 2.791l-.686.407C14.128 21.399 13.114 22 12 22s-2.128-.6-4.157-1.802l-.686-.407c-2.029-1.2-3.043-1.802-3.6-2.791C3 16.01 3 14.81 3 12.406v-.812C3 9.19 3 7.989 3.557 7s1.571-1.59 3.6-2.792zM13 16a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-1-9.75a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V7a.75.75 0 0 1 .75-.75" clipRule="evenodd"></path>
+                    </svg>
+                    <span>Theme not found.</span>
+                </div>
+                <div>There are only {colorAnim.length} themes available for now!</div>
+                <div>Want more themes? please wait paitently or if you could help create a new theme.
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M4 20h16v2H4zM4 2h16v2H4zM2 2h2v20H2zm18 0h2v20h-2zM7 13h2v2H7zm2 2h6v2H9zm6-2h2v2h-2zM8 8h2v2H8zm6 0h2v2h-2z"></path>
+                    </svg></div>
+                <a href="https://github.com/Bijay-Codes/fauna-ui" className="underline underline-offset-8 hover:text-(--accent-bg) self-start"
+                    target="_blank">
+                    GitHub ↗
+                </a>
+            </section >
         );
     }
 

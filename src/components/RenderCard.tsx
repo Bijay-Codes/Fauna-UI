@@ -20,7 +20,7 @@ _____________________
 export function RenderCards() {
     const data = getBestTheme(colorAnim);
     return (
-        <section className="flex flex-col p-4">
+        <section className="flex flex-col p-4 bg-(--surface-bg) rounded">
             <div className="text-xl font-extrabold tracking-tight">Hot picks</div>
             <div className="flex flex-nowrap gap-4 overflow-auto h-fit py-4">
                 {data.map(data => {

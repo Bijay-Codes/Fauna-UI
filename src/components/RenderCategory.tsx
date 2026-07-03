@@ -5,7 +5,7 @@ import { category } from "../Data/category";
 //  used for filtering by category mechanism
 export function RenderCategory({ homeview }: { homeview: boolean }) {
     const navigate = useNavigate();
-    const tags = homeview ? 2 : 1; // not being used actively but can be used when we decide to render category in explore page too
+    const tags = homeview ? 1 : 2; // not being used actively but can be used when we decide to render category in explore page too
     return (
         <section className="p-4 flex flex-col gap-4 w-full text-(--surface-muted-fg)/50">
             {homeview && <div className="text-xl font-extrabold text-(--page-fg) border-b border-(--border)/80">Category</div>}
@@ -13,13 +13,13 @@ export function RenderCategory({ homeview }: { homeview: boolean }) {
                 {category.map(c => (
                     <div
                         className="flex flex-col justify-center text-sm p-2
-                        hover:bg-(--primary-bg)/80 hover:text-(--primary-fg)
+                        hover:bg-(--primary-bg) hover:text-(--primary-fg) bg-(--surface-muted-bg)
                         rounded-lg border border-(--border)/30 cursor-pointer"
                         key={c.category}
                         onClick={() => navigate("/explore", { state: { subcategories: c.subcategories } })}
                     >
                         <div className="font-medium  text-(--page-fg)">{c.category} <span>↗</span></div>
-                        <div className="flex flex-wrap gap-2 text-xs">
+                        <div className="flex flex-wrap gap-2 opacity-80 text-(--page-fg) text-xs">
                             {c.subcategories.map((sc, i) => i <= tags && <span key={i}>[{sc}]</span>)}
                         </div>
                     </div>

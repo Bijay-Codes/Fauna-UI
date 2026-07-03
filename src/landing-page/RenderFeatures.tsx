@@ -22,7 +22,7 @@ export function RenderFeatures() {
                     )
                 })}
             </ul>
-            <span className="text-xs flex flex-wrap gap-2 items-center">
+            <span title="formats we support" className="text-xs flex flex-wrap gap-2 items-center">
                 <span className={formatStyles}>Tailwind config </span>
                 |
                 <span className={formatStyles}>CSS variables</span>

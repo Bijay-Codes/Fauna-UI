@@ -11,7 +11,7 @@ export function RenderCategory({ homeview }: { homeview: boolean }) {
             {homeview && <div className="text-xl font-extrabold text-(--page-fg) border-b border-(--border)/80">Category</div>}
             <div className="flex flex-wrap gap-4 text-xs sec-font">
                 {category.map(c => (
-                    <div
+                    <div title="Filter themes by this category"
                         className="flex flex-col justify-center text-sm p-2
                         hover:bg-(--primary-bg) hover:text-(--primary-fg) bg-(--surface-muted-bg)
                         rounded-lg border border-(--border)/30 cursor-pointer"

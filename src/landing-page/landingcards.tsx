@@ -12,7 +12,8 @@ export function RenderLandingCards() {
             <h3 className="p-4 text-lg border-b border-(--accent-bg)">
                 Pick a theme — see it work
             </h3>
-            <div className="flex gap-4 overflow-auto custom-scroll p-4">
+            <div title="See this theme applied to a page click visit"
+                className="flex gap-4 overflow-auto custom-scroll p-4">
                 {cardsToRender.map(card => {
                     return (
                         <RenderThemeSwatch key={card.name} data={card} />

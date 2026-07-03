@@ -50,13 +50,13 @@ export function RenderDetail() {
                 className="flex flex-col gap-6 p-4
             max-w-300 m-auto"
             >
-                <Link to='/explore' className="underline prim-font">← Go back to Explore</Link>
+                <Link to='/explore' className="underline prim-font hover:text-(--success-color)">← Go back to Explore</Link>
                 <RenderHero theme={card} mode={mode} />
                 <div className="flex flex-row sm:flex-col flex-wrap gap-4">
                     <h1 className="text-xl w-fit font-medium">This page is using {name} theme</h1>
                     <div className="flex gap-2 flex-wrap prim-font items-center">
                         <h2 className="opacity-80">Active</h2>
-                        <button
+                        <button title="Click to check light/dark mode of this theme"
                             className="px-2 py-2 rounded text-xs capitalize"
                             style={{ background: primary_bg, color: primary_fg }}
                             onClick={toggle}
@@ -119,7 +119,7 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
                 {theme.name}
             </div>
             <div
-                className="text-lg font-bold opacity-80"
+                className="text-lg font-bold opacity-90"
                 style={{ color: colors.page_fg }}>
                 {theme.tagline}
             </div>

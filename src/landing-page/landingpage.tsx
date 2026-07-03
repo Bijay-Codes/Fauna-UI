@@ -41,10 +41,15 @@ function RenderMain() {
                     </div>
                 </div>
                 <div className="sm:ml-auto py-2 sm:p-4 flex gap-4">
-                    <Link to={'/explore'} className="bg-(--accent-bg) text-(--accent-fg)
+                    <Link title="link to explore"
+                        to={'/explore'}
+                        className="bg-(--accent-bg) text-(--accent-fg)
                     sm:py-1 px-2 rounded-lg text-center
-                    hover:bg-(--accent-bg)/80">Browse Themes</Link>
-                    <a target="_blank"
+                    hover:bg-(--accent-bg)/80">
+                        Browse Themes
+                    </Link>
+
+                    <a target="_blank" title="Find this repo on github"
                         href="https://github.com/Bijay-Codes/Fauna-UI"
                         className="bg-(--primary-bg) text-(--primary-fg) px-2 rounded inline-flex items-center
                         hover:bg-(--primary-bg)/80">

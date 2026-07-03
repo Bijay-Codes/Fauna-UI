@@ -12,7 +12,7 @@ export function RenderNav() {
         <nav className="h-14 w-full border-b border-(--accent-bg)/30 prim-font">
             <div className="m-auto flex items-center py-4 sm:px-10 p-2">
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
-                    <li>
+                    <li title="Visit landing page">
                         <NavLink to="/intro" className='text-md sm:text-2xl tracking-widest'>
                             {/* go to landing page */}
                             {/* Fauna<span className="text-(--primary-bg)">UI</span> */}
@@ -28,7 +28,7 @@ export function RenderNav() {
                     <li><NavLink to="/explore" className={linkClass}>Explore</NavLink></li>{/* link to explore */}
 
                     {/* dark mode? light mode? theme toggle button resides below ˅ */}
-                    <button
+                    <button title="Toggle dark/light mode"
                         className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"
                         onClick={toggle}
                     >⛯</button>

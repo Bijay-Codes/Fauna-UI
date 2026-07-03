@@ -55,7 +55,7 @@ export function RenderCard({ data }: CardDataProps) {
     const colors = 'w-4 rounded aspect-square outline';
 
     return (
-        <Link to={`/explore/${data.id}`} className="block no-underline">
+        <Link title="Click to visit" to={`/explore/${data.id}`} className="block no-underline">
             <div
                 className="w-60 aspect-square rounded-lg text-center
                 flex flex-col gap-4 p-4 justify-center items-center

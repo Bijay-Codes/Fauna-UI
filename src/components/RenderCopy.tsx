@@ -170,8 +170,9 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
     }, []);
     return (
         <div className="relative inline-block" ref={wrapperRef}>
-            <button
-                className="px-3 py-1 rounded text-sm font-medium transition-opacity hover:opacity-90 sec-font"
+            <button title="Copy this theme"
+                className="px-3 py-1 rounded  hover:opacity-90
+                 text-sm font-medium sec-font"
                 style={{
                     background: `linear-gradient(to bottom right,
                      ${current.primary_bg},

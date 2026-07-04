@@ -168,7 +168,7 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
     const colors = theme.color[mode];
 
     return (
-        <section className="flex flex-col gap-10">
+        <main className="flex flex-col gap-10">
             {/* Colors pallate => renders color swatches preview */}
             <RenderColor colors={colors} mode={mode} />
             {/* Font suggestions => renders head and font names*/}
@@ -213,7 +213,7 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
                 </div>
             </div>
             <hr className="border-t border-neutral-200 dark:border-neutral-800 my-4" />
-        </section>
+        </main>
     )
 }
 

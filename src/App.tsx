@@ -3,11 +3,11 @@ import { RenderSearch } from './components/RenderSearch'
 import { RenderCategory } from './components/RenderCategory'
 function App() {
     return (
-        <div className='sm:p-8'>
+        <main className='sm:p-8'>
             <RenderSearch homepage={true} />
             <RenderCards />
             <RenderCategory homeview={true} />
-        </div>
+        </main>
     )
 }
 

@@ -67,3 +67,9 @@ WELLL my exams are starting up but this project is already underway so i plan to
 i dont think i will be babbling here for some days since im not getting much time to code and the time i get shouldnt be used on this i guess.
 
 Hmm haven't been writing now right? well the exams are very close so im puttin all my time on study or coding the repo has been queit so i started doing some work here and just finished adding the filter functionality i will be putting this repo public now since i can show it now because it is finally looking good and usable though i still thing the color themes need a little work and add more animal themes.
+
+__________________________________________________________________________________________________________________
+
+I literally dont even know but i think my functions are doing a lot of work... at a glance a person could even get lost in it and not even know what to change to do what... not to mention using the AI for the contrast checking function... hmm idk why but i dont like using AI for that but well i dont have time for undestanding it right now while juggling my exams.
+
+Leaving that aside i learnt typescript a little from this project but i still dont undestand the advanced level stuff, probably i will get comfortable with it if i give it enough time after my stuff is done.

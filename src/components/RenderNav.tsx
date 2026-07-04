@@ -28,10 +28,12 @@ export function RenderNav() {
                     <li><NavLink to="/explore" className={linkClass}>Explore</NavLink></li>{/* link to explore */}
 
                     {/* dark mode? light mode? theme toggle button resides below ˅ */}
-                    <button title="Toggle dark/light mode"
-                        className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"
-                        onClick={toggle}
-                    >⛯</button>
+                    <li>
+                        <button title="Toggle dark/light mode"
+                            className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"
+                            onClick={toggle}
+                        >⛯</button>
+                    </li>
                 </ul>
             </div>
         </nav>

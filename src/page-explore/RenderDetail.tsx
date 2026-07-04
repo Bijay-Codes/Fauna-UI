@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RenderFooter } from "../landing-page/Renderfooter";
 import { colorAnim } from "../Data/animalsData";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { CopyThemeButton } from "../components/RenderCopy";
 import { getWCAGRating } from "../test";
 import type { theme, color } from "../types";
@@ -9,10 +9,36 @@ export function RenderDetail() {
     const { id } = useParams<{ id: string }>();
     const card = colorAnim.find(item => String(item.id) === id);
     const [mode, setMode] = useState(card?.defaultMode || 'dark');
+    const navigate = useNavigate();
+    const thisPage = useRef<HTMLElement>(null);
+    const isDesktop = window.matchMedia("(hover: hover) and (min-width: 750px)").matches;
+    useEffect(() => {
+        if (isDesktop) thisPage.current?.focus();
+    }, [isDesktop]);
+
+    // Function that handles the left and right key click to change between pages
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+        if (!isDesktop) return
+        // // convert to num
+        const currentNum = Number(id);
+
+        if (e.key === 'ArrowRight') {
+            navigate(`/explore/${currentNum + 1}`);
+        } else if (e.key === 'ArrowLeft') {
+            // Preventing from going below 0
+            const next = Math.max(0, currentNum - 1);
+            navigate(`/explore/${next}`);
+        }
+    };
 
     if (!card) {
         return (
-            <section className="flex flex-col justify-center sm:items-start items-center p-6 gap-6 max-200">
+            <section
+                tabIndex={0}
+                autoFocus
+                onKeyDown={(e) => handleKeyDown(e)}
+                className="flex flex-col justify-center sm:items-start items-center
+                 p-6 gap-6 max-200">
                 <Link to='/explore' className="underline underline-offset-8 hover:text-(--success-color) text-xl">← Go back to Explore</Link>
                 <div className="mt-4 p-4 rounded-lg bg-(--danger-color) flex items-center gap-2 text-(--danger-fg) text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
@@ -45,13 +71,22 @@ export function RenderDetail() {
 
     return (
         <section style={{ background: page_bg, color: page_fg }}
+            autoFocus
+            tabIndex={-1}
+            onKeyDown={(e) => handleKeyDown(e)}
+            ref={thisPage}
             className="transition-all duration-700 ease-in-out">
             <div
                 className="flex flex-col gap-6 p-4
             max-w-300 m-auto"
             >
                 <Link to='/explore' className="underline prim-font hover:text-(--success-color)">← Go back to Explore</Link>
+                {isDesktop && <div>You can switch between themes using left and right arrow keys</div>}
+
+                {/* renders copy button theme name and tagline */}
                 <RenderHero theme={card} mode={mode} />
+
+                {/* renders darkmode toggle section */}
                 <div className="flex flex-row sm:flex-col flex-wrap gap-4">
                     <h1 className="text-xl w-fit font-medium">This page is using {name} theme</h1>
                     <div className="flex gap-2 flex-wrap prim-font items-center">
@@ -65,7 +100,8 @@ export function RenderDetail() {
                         </button>
                     </div>
                 </div>
-                <RenderIntro theme={card} mode={mode} />
+
+                <RenderContent theme={card} mode={mode} />
                 <RenderTutorial theme={card} mode={mode} />
             </div>
             {
@@ -128,18 +164,20 @@ function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     )
 }
 
-function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
+function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode];
 
     return (
         <section className="flex flex-col gap-10">
-            {/* Colors pallate */}
+            {/* Colors pallate => renders color swatches preview */}
             <RenderColor colors={colors} mode={mode} />
-            {/* Font suggestions */}
+            {/* Font suggestions => renders head and font names*/}
             <RenderFont theme={theme} mode={mode} />
+
+            {/* Line break for sections */}
             <hr className="border-t border-neutral-200 dark:border-neutral-800 my-4" />
 
-            {/* Use case section */}
+            {/* Use case section => render where the users can use this theme section */}
             <div className="flex flex-col gap-3">
                 <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
                     Built for
@@ -179,6 +217,7 @@ function RenderIntro({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) 
     )
 }
 
+// Color swatches for the colors / necessary for the color swatches to work
 const swatch: { key: keyof color, label: string, fgKey: keyof color }[] = [
     { key: "page_bg", label: "Page", fgKey: "page_fg" },
     { key: "surface_bg", label: "Surface", fgKey: "surface_fg" },

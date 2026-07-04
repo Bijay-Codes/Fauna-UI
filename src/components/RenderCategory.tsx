@@ -8,8 +8,8 @@ export function RenderCategory({ homeview }: { homeview: boolean }) {
     const tags = homeview ? 1 : 2; // not being used actively but can be used when we decide to render category in explore page too
     return (
         <section className="p-4 flex flex-col gap-4 w-full text-(--surface-muted-fg)/50">
-            {homeview && <div className="text-xl font-extrabold text-(--page-fg) border-b border-(--border)/80">Category</div>}
-            <div className="flex flex-wrap gap-4 text-xs sec-font">
+            {homeview && <div className="text-2xl font-extrabold text-(--page-fg) border-b border-(--border)/80">Category</div>}
+            <div className="flex flex-wrap gap-4 sec-font">
                 {category.map(c => (
                     <div title="Filter themes by this category"
                         className="flex flex-col justify-center text-sm p-2
@@ -18,8 +18,8 @@ export function RenderCategory({ homeview }: { homeview: boolean }) {
                         key={c.category}
                         onClick={() => navigate("/explore", { state: { subcategories: c.subcategories } })}
                     >
-                        <div className="font-medium  text-(--page-fg)">{c.category} <span>↗</span></div>
-                        <div className="flex flex-wrap gap-2 opacity-80 text-(--page-fg) text-xs">
+                        <div className="font-medium text-lg text-(--page-fg)">{c.category} <span>↗</span></div>
+                        <div className="flex flex-wrap gap-2 opacity-80 text-(--page-fg) text-sm">
                             {c.subcategories.map((sc, i) => i <= tags && <span key={i}>[{sc}]</span>)}
                         </div>
                     </div>

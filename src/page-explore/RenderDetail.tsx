@@ -41,17 +41,23 @@ export function RenderDetail() {
                  p-6 gap-6 max-200">
                 <Link to='/explore' className="underline underline-offset-8 hover:text-(--success-color) text-xl">← Go back to Explore</Link>
                 <div className="mt-4 p-4 rounded-lg bg-(--danger-color) flex items-center gap-2 text-(--danger-fg) text-sm">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                         <path fill="currentColor" fillRule="evenodd" d="M7.843 3.802C9.872 2.601 10.886 2 12 2s2.128.6 4.157 1.802l.686.406c2.029 1.202 3.043 1.803 3.6 2.792c.557.99.557 2.19.557 4.594v.812c0 2.403 0 3.605-.557 4.594s-1.571 1.59-3.6 2.791l-.686.407C14.128 21.399 13.114 22 12 22s-2.128-.6-4.157-1.802l-.686-.407c-2.029-1.2-3.043-1.802-3.6-2.791C3 16.01 3 14.81 3 12.406v-.812C3 9.19 3 7.989 3.557 7s1.571-1.59 3.6-2.792zM13 16a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-1-9.75a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V7a.75.75 0 0 1 .75-.75" clipRule="evenodd"></path>
                     </svg>
-                    <span>Theme not found.</span>
+                    <span className="text-xl">Theme not found.</span>
                 </div>
-                <div>There are only {colorAnim.length} themes available for now!</div>
-                <div>Want more themes? please wait paitently or if you could help create a new theme.
+                <div className="text-lg">
+                    There are only {colorAnim.length} themes available for now!
+                </div>
+                <div className="text-md">
+                    Want more themes? please wait paitently or if you could help create a new theme.
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M4 20h16v2H4zM4 2h16v2H4zM2 2h2v20H2zm18 0h2v20h-2zM7 13h2v2H7zm2 2h6v2H9zm6-2h2v2h-2zM8 8h2v2H8zm6 0h2v2h-2z"></path>
-                    </svg></div>
-                <a href="https://github.com/Bijay-Codes/fauna-ui" className="underline underline-offset-8 hover:text-(--accent-bg) self-start"
+                    </svg>
+                </div>
+                <a href="https://github.com/Bijay-Codes/fauna-ui"
+                    className="underline underline-offset-8
+                     hover:text-(--accent-bg) self-start text-xl"
                     target="_blank">
                     GitHub ↗
                 </a>
@@ -77,22 +83,22 @@ export function RenderDetail() {
             ref={thisPage}
             className="transition-all duration-700 ease-in-out">
             <div
-                className="flex flex-col gap-6 p-4
+                className="flex flex-col gap-4 p-4
             max-w-300 m-auto"
             >
-                <Link to='/explore' className="underline prim-font hover:text-(--success-color)">← Go back to Explore</Link>
-                {isDesktop && <div>You can switch between themes using left and right arrow keys</div>}
+                <Link to='/explore' className="underline text-xl prim-font hover:text-(--success-color)">← Go back to Explore</Link>
+                {isDesktop && <div className="text-md">You can switch between themes using left and right arrow keys</div>}
 
                 {/* renders copy button theme name and tagline */}
                 <RenderHero theme={card} mode={mode} />
 
                 {/* renders darkmode toggle section */}
                 <div className="flex flex-row sm:flex-col flex-wrap gap-4">
-                    <h1 className="text-xl w-fit font-medium">This page is using {name} theme</h1>
+                    <h1 className="text-2xl w-fit font-bold">This page is using {name} theme</h1>
                     <div className="flex gap-2 flex-wrap prim-font items-center">
-                        <h2 className="opacity-80">Active</h2>
+                        <h2 className="opacity-80 text-xl">Active</h2>
                         <button title="Click to check light/dark mode of this theme"
-                            className="px-2 py-2 rounded text-xs capitalize"
+                            className="px-2 py-2 rounded text-md capitalize"
                             style={{ background: primary_bg, color: primary_fg }}
                             onClick={toggle}
                         >
@@ -145,17 +151,17 @@ export function RenderDetail() {
 function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode]
     return (
-        <main className="flex flex-col justify-center gap-4 sm:p-4 p-1 border-b-2"
+        <main className="flex flex-col justify-center gap-4 sm:py-8 sm:p-4 py-6 border-b-2"
             style={{
                 borderColor: colors.accent_bg,
             }}>
             <div
-                className="text-2xl font-extrabold text-shadow-2xs"
+                className="text-4xl font-extrabold text-shadow-2xs"
                 style={{ color: colors.accent_bg }}>
                 {theme.name}
             </div>
             <div
-                className="text-lg font-bold opacity-90"
+                className="text-2xl font-bold opacity-90"
                 style={{ color: colors.page_fg }}>
                 {theme.tagline}
             </div>
@@ -179,14 +185,14 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
 
             {/* Use case section => render where the users can use this theme section */}
             <div className="flex flex-col gap-3">
-                <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+                <h2 className="text-xl font-bold py-2 uppercase tracking-widest" style={{ color: colors.page_fg }}>
                     Built for
                 </h2>
                 <div className="flex flex-wrap gap-2 sec-font">
                     {theme.categories.map(category => (
                         <span
                             key={category}
-                            className="text-sm px-2 py-1 rounded"
+                            className="text-lg px-2 py-1 rounded"
                             style={{ background: colors.accent_bg, color: colors.accent_fg }}
                         >
                             {category}
@@ -197,14 +203,14 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
 
             {/* Usage */}
             <div className="flex flex-col gap-3">
-                <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+                <h2 className="text-xl font-bold uppercase tracking-widest py-2" style={{ color: colors.page_fg }}>
                     Usage
                 </h2>
                 <div className="flex flex-wrap gap-2">
                     {theme.sites.map(site => (
                         <span
                             key={site}
-                            className="text-sm px-4 py-1 rounded sec-font"
+                            className="text-lg px-4 py-1 rounded sec-font"
                             style={{ background: colors.surface_muted_bg, color: colors.surface_muted_fg }}
                         >
                             {site}
@@ -233,7 +239,7 @@ const swatch: { key: keyof color, label: string, fgKey: keyof color }[] = [
 function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }) {
     return (
         <div className="flex flex-col gap-3">
-            <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+            <h2 className="text-md uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
                 Palette | {mode}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
@@ -242,11 +248,11 @@ function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }
                     return (
                         <div
                             key={key}
-                            className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border border-slate-600"
-                            style={{ background: colors[key], color: colors[fgKey] }}
+                            className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border"
+                            style={{ background: colors[key], color: colors[fgKey], borderColor: colors.surface_fg }}
                         >
-                            <span className="text-sm font-medium">{label}</span>
-                            <div className="flex gap-2 text-[0.6rem] opacity-90 sec-font w-fit px-2 items-center">
+                            <span className="text-md font-medium">{label}</span>
+                            <div className="flex gap-2 text-xs opacity-90 sec-font w-fit px-2 items-center">
                                 <span>
                                     {ratio} : 1
                                 </span>
@@ -266,7 +272,7 @@ function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
 
     return (
         <div className="flex flex-col gap-2">
-            <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+            <h2 className="text-xl font-bold uppercase tracking-widest" style={{ color: colors.page_fg }}>
                 Typography
             </h2>
             <div
@@ -277,13 +283,13 @@ function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
                     <div className="text-2xl" style={{ fontFamily: theme.font.main }}>
                         {theme.name} sets the tone
                     </div>
-                    <div className="text-xs mt-1 opacity-70 font-mono sec-font">Head | {theme.font.main}</div>
+                    <div className="text-lg mt-1 sec-font">Head | {theme.font.main}</div>
                 </div>
                 <div>
-                    <p className="text-sm sec-font" style={{ fontFamily: theme.font.body }}>
+                    <p className="text-lg font-medium sec-font" style={{ fontFamily: theme.font.body }}>
                         Body copy renders in {theme.font.body}, built for longer reading without losing the theme's character.
                     </p>
-                    <div className="text-xs mt-1 opacity-70 sec-font">Body | {theme.font.body}</div>
+                    <div className="text-md mt-1 sec-font" style={{ color: colors.surface_muted_fg }}>Body | {theme.font.body}</div>
                 </div>
             </div>
         </div>
@@ -344,7 +350,7 @@ function RenderTutorial({ theme, mode }: { theme: theme; mode: 'dark' | 'light' 
 
     return (
         <div className="flex flex-col gap-2">
-            <h2 className="text-xs uppercase tracking-widest" style={{ color: colors.surface_muted_fg }}>
+            <h2 className="text-xl font-extrabold uppercase tracking-widest" style={{ color: colors.page_fg }}>
                 color usage
             </h2>
             <div className="flex flex-col gap-2">
@@ -359,8 +365,8 @@ function RenderTutorial({ theme, mode }: { theme: theme; mode: 'dark' | 'light' 
                             style={{ background: colors[key] }}
                         />
                         <div className="flex flex-col gap-0.5 sec-font">
-                            <span className="text-sm font-medium">{label}</span>
-                            <span className="text-xs opacity-75">{useCase}</span>
+                            <span className="text-xl font-medium">{label}</span>
+                            <span className="sm:text-lg text-sm" style={{ color: colors.surface_muted_fg }}>{useCase}</span>
                         </div>
                     </div>
                 ))}

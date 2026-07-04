@@ -73,3 +73,8 @@ ________________________________________________________________________________
 I literally dont even know but i think my functions are doing a lot of work... at a glance a person could even get lost in it and not even know what to change to do what... not to mention using the AI for the contrast checking function... hmm idk why but i dont like using AI for that but well i dont have time for undestanding it right now while juggling my exams.
 
 Leaving that aside i learnt typescript a little from this project but i still dont undestand the advanced level stuff, probably i will get comfortable with it if i give it enough time after my stuff is done.
+
+
+Okay guess what? hmm soo i have been using firefox as my default browser for its obvious better CSS/Layout tools than chrome and then i noticed itt... when i went to chrome to run the site and get a lighthouse score i saw my site has way less font size than what is on firefox!
+
+Why this happened? hmmm because i had bumped my font size way too much because i cant see stuff from a distance... all this time i optimized for a font size that isnt normal and already too big but since i dont use chrome there was no font size bump there so i noticed this inconsistency. I thought to myself must be a CSS issue but well it wasnt lol, now im fixing the font size issue and its reasuring that i can go back to my small font version whenever i think this update is unnecessary.

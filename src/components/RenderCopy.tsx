@@ -11,7 +11,7 @@ interface CopyThemeButtonProps {
 
 const FORMAT_LABELS: Record<Format, string> = {
     css: "CSS Variables",
-    tailwind: "Tailwind Config",
+    tailwind: "Tailwind Config v3",
     json: "JSON",
     array: "Color Array",
     font: "Font Import",
@@ -31,10 +31,6 @@ function buildCSSBlock(color: Color, selector: string, indent = "  ") {
 // input {colors=>themes, indent}
 // output 'var' separator "-" instead of "_" and color in string format
 function buildTailwindBlock(color: Color, indent = "        ") {
-    console.log(Object.entries(color)
-        .map(([key, value]) => `${indent}'${key.replace(/_/g, "-")}': '${value}',`)
-        .join("\n"));
-
     return Object.entries(color)
         .map(([key, value]) => `${indent}'${key.replace(/_/g, "-")}': '${value}',`)
         .join("\n");
@@ -172,7 +168,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
         <div className="relative inline-block" ref={wrapperRef}>
             <button title="Copy this theme"
                 className="px-3 py-1 rounded  hover:opacity-90
-                 text-sm font-medium sec-font"
+                 text-lg font-medium sec-font"
                 style={{
                     background: `linear-gradient(to bottom right,
                      ${current.primary_bg},
@@ -186,20 +182,20 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
 
             {open && (
                 <div
-                    className="absolute z-10 mt-2 sm:w-64 w-50 rounded p-4 border"
+                    className="absolute z-10 mt-2 sm:w-80 w-full rounded p-4 border"
                     style={{
                         background: current.surface_bg,
                         color: current.surface_fg,
                         borderColor: current.accent_bg,
                     }}
                 >
-                    <div className="">
-                        <p className="text-xs uppercase tracking-wide opacity-70 mb-1 prim-font">Format</p>
+                    <div>
+                        <p className="text-lg uppercase tracking-wide opacity-70 mb-1 prim-font">Format</p>
                         <div className="flex flex-wrap gap-1">
                             {(Object.keys(FORMAT_LABELS) as Format[]).map((f) => (
                                 <button
                                     key={f}
-                                    className="px-2 py-1 rounded text-xs sec-font"
+                                    className="px-2 py-1 rounded text-md sec-font"
                                     style={
                                         format === f
                                             ? { background: current.primary_bg, color: current.primary_fg }
@@ -215,12 +211,12 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
 
                     {format !== "font" && (
                         <div className="mb-2">
-                            <p className="text-xs uppercase tracking-wide opacity-70 mb-1 prim-font">Scope</p>
+                            <p className="text-lg uppercase tracking-wide opacity-70 mb-1 prim-font">Scope</p>
                             <div className="flex gap-1">
                                 {(["current", "both"] as Scope[]).map((s) => (
                                     <button
                                         key={s}
-                                        className="px-2 rounded text-xs flex-1"
+                                        className="px-1 rounded flex-1"
                                         style={
                                             scope === s
                                                 ? { background: current.primary_bg, color: current.primary_fg }
@@ -236,7 +232,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                     )}
 
                     <button
-                        className="w-full px-2 mt-2 rounded text-sm font-medium prim-font"
+                        className="w-full px-2 mt-2 rounded text-lg font-medium prim-font"
                         style={{ background: current.primary_bg, color: current.primary_fg }}
                         onClick={handleCopy}
                     >

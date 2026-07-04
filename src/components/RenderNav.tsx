@@ -4,13 +4,13 @@ import { NavLink } from "react-router-dom";
 export function RenderNav() {
     const { theme, toggle } = useTheme(); // theme switcher {theme current, set theme current}
     const linkClass = ({ isActive }: { isActive: boolean }) =>
-        `rounded-lg transition-colors text-xs p-1
+        `rounded-lg transition-colors text-lg p-1
         ${isActive ? "bg-(--primary-bg) text-(--primary-fg)"
             : "hover:bg-(--surface-muted-bg)"}`;
 
     return (
-        <nav className="h-14 w-full border-b border-(--accent-bg)/30 prim-font">
-            <div className="m-auto flex items-center py-4 sm:px-10 p-2">
+        <nav className="h-20 w-full border-b border-(--accent-bg)/30 prim-font">
+            <div className="m-auto flex items-center py-4 sm:px-10 p-2 max-w-400">
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li title="Visit landing page">
                         <NavLink to="/intro" className='text-md sm:text-2xl tracking-widest'>
@@ -30,7 +30,7 @@ export function RenderNav() {
                     {/* dark mode? light mode? theme toggle button resides below ˅ */}
                     <li>
                         <button title="Toggle dark/light mode"
-                            className="bg-(--primary-bg) rounded-t-lg rounded text-(--primary-fg) duration-300 ease-in-out p-1"
+                            className="bg-(--primary-bg) rounded-t-lg text-xl rounded text-(--primary-fg) duration-300 ease-in-out p-1"
                             onClick={toggle}
                         >⛯</button>
                     </li>

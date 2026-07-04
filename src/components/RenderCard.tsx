@@ -21,7 +21,7 @@ export function RenderCards() {
     const data = getBestTheme(colorAnim);
     return (
         <section className="flex flex-col p-4">
-            <div className="text-xl font-extrabold tracking-tight">Hot picks</div>
+            <div className="text-2xl font-extrabold tracking-tight">Hot picks</div>
             <div className="flex flex-nowrap gap-4 overflow-auto h-fit py-4">
                 {data.map(data => {
                     return (
@@ -57,7 +57,7 @@ export function RenderCard({ data }: CardDataProps) {
     return (
         <Link title="Click to visit" to={`/explore/${data.id}`} className="block no-underline">
             <div
-                className="w-60 aspect-square rounded-lg text-center
+                className="w-80 aspect-square rounded-lg text-center
                 flex flex-col gap-4 p-4 justify-center items-center
                 hover:-translate-y-0.5 border-(--primary-bg) hover:border-l-4 hover:border-r-4
                 transition-all duration-100 ease-in sec-font"
@@ -68,7 +68,7 @@ export function RenderCard({ data }: CardDataProps) {
                 }}
             >
                 <div className="text-2xl font-extrabold prim-font">{data.name}</div>
-                <div className="flex flex-wrap text-xs gap-2 items-center justify-center">
+                <div className="flex flex-wrap text-sm gap-2 items-center justify-center">
                     <span>[{data.font.main}]</span>
                     <span>[{data.font.body}]</span>
                 </div>
@@ -82,8 +82,8 @@ export function RenderCard({ data }: CardDataProps) {
                     {data.categories.map((c, i) => {
                         if (i <= 3)
                             return (
-                                <span key={i} className="text-sm px-0.5" style={{ color: surface_bg }}>
-                                    [<span className="text-xs" style={{ color: primary_fg }}>{c}</span>]
+                                <span key={i} className="text-md px-0.5" style={{ color: surface_bg }}>
+                                    [<span className="text-sm" style={{ color: primary_fg }}>{c}</span>]
                                 </span>
                             );
                     })}

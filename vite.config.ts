@@ -8,7 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss(),
     sitemap({
-      hostname: 'https://faunaui.vercel.app', // for generating site map/ SEO optimization
+      hostname: 'https://faunaui.vercel.app',
+      dynamicRoutes: ['/', '/intro', '/explore'],
     })
   ],
 })

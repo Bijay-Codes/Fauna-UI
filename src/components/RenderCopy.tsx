@@ -166,7 +166,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
         document.addEventListener("click", handleClick);
 
         // clear up function to avoid stacking event listeners per ReRender !IMP
-        return () => document.removeEventListener("mousedown", handleClick);
+        return () => document.removeEventListener("click", handleClick);
     }, []);
     return (
         <div className="relative inline-block" ref={wrapperRef}>

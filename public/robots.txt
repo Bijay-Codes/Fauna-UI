@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Optional: Add your sitemap link here once you have one
-# Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://faunaui.vercel.app/sitemap.xml

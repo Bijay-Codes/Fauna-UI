@@ -16,7 +16,9 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
     }
 
     return (
-        <div className={`rounded-lg m-auto active:outline-0 max-w-250 min-w-[70%] grid grid-cols-[1fr_auto] p-2 sec-font
+        <div
+            className={`rounded-lg m-auto active:outline-0 max-w-250 min-w-[70%] grid grid-cols-[1fr_auto]
+                 p-2 sec-font
             ${homepage ? '' : 'sticky top-0 z-40 bg-(--page-bg)/70 border-b border-(--primary-bg)'}`}>
             <input type="search"
                 value={text}
@@ -37,7 +39,7 @@ export function RenderSearch({ homepage }: { homepage: boolean }) {
                 className="bg-(--surface-bg) text-(--surface-fg) text-lg sm:text-xl
                 hover:bg-(--secondary-bg) hover:text-(--secondary-fg) active:bg-(--accent-bg) active:text-(--accent-fg)
                 transition-colors duration-300 ease-in-out
-                rounded-br-2xl rounded py-2 px-4 prim-font"
+                rounded-br-2xl rounded py-1 sm:py-2 px-4 prim-font"
             >Search</button>
         </div>
     )

@@ -12,7 +12,7 @@ function RenderMain() {
 
     return (
         <section className=" py-4 sm:py-6 sm:px-6 px-4 gap-6
-        flex flex-col items-center justify-center w-screen max-w-300 m-auto
+        flex flex-col items-center justify-center w-screen max-w-350 m-auto
         transition-all duration-700 ease-in-out">
             <main className="sm:grid sm:grid-cols-[1fr_auto] flex flex-wrap items-center px-4 py-6 gap-4">
                 <div className="flex flex-col gap-2">
@@ -24,18 +24,18 @@ function RenderMain() {
                         loading='lazy'
                         src="/assets/FaunaUIDark.svg"
                         alt="Fauna-UI logo"
-                        className="logo-dark w-40 sm:w-50 logo" />
+                        className="logo-dark w-40 sm:w-60 logo" />
                     <img
                         loading="lazy"
                         src="/assets/FaunaUILight.svg"
                         alt="Fauna-UI logo"
-                        className="logo-light w-40 sm:w-50 logo" />
+                        className="logo-light w-40 sm:w-60 logo" />
 
                     <div className="fade-left">
-                        <h2 className="text-2xl font-bold sec-font text-(--surface-fg) tracking-wide">
+                        <h2 className="text-lg sm:text-xl font-bold sec-font text-(--surface-fg) tracking-wide">
                             Tired of vague color swatches that don't tell you anything?
                         </h2>
-                        <h3 className="text-lg sec-font text-(--surface-muted-fg) tracking-tight">
+                        <h3 className="text-md sm:text-lg sec-font text-(--surface-muted-fg) tracking-tight">
                             Pick a theme. Watch it take over the page. Get back to work.
                         </h3>
                     </div>
@@ -44,14 +44,14 @@ function RenderMain() {
                     <Link title="link to explore"
                         to={'/explore'}
                         className="bg-(--accent-bg) text-(--accent-fg)
-                    sm:py-1 px-2 rounded-lg text-center text-xl
+                    sm:py-1 px-2 rounded-lg text-center sm:text-xl text-lg
                     hover:bg-(--accent-bg)/80">
                         Browse Themes
                     </Link>
 
                     <a target="_blank" title="Find this repo on github"
                         href="https://github.com/Bijay-Codes/Fauna-UI"
-                        className="bg-(--primary-bg) text-(--primary-fg) px-2 rounded inline-flex items-center text-xl
+                        className="bg-(--primary-bg) text-(--primary-fg) px-2 rounded inline-flex items-center text-lg sm:text-xl
                         hover:bg-(--primary-bg)/80">
                         Github
                     </a>
@@ -61,7 +61,7 @@ function RenderMain() {
             <hr className="m-6 w-full opacity-30" />
             <RenderFeatures />
             <RenderAboutSection />
-            <hr className="m-6 w-full opacity-30" />
+            <hr className="m-6 w-screen opacity-30" />
             <RenderFooter />
         </section >
     )

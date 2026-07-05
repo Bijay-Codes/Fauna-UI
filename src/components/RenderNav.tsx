@@ -4,18 +4,18 @@ import { NavLink } from "react-router-dom";
 export function RenderNav() {
     const { theme, toggle } = useTheme(); // theme switcher {theme current, set theme current}
     const linkClass = ({ isActive }: { isActive: boolean }) =>
-        `rounded-lg transition-colors text-lg p-1
-        ${isActive ? "bg-(--primary-bg) text-(--primary-fg)"
+        `rounded-lg transition-colors text-sm sm:text-lg p-1
+        ${isActive ? "bg-(--primary-bg) text-(--primary-fg) font-extrabold"
             : "hover:bg-(--surface-muted-bg)"}`;
 
     return (
-        <nav className="h-20 w-full border-b border-(--accent-bg)/30 prim-font">
+        <nav className="sm:h-20 w-full border-b border-(--accent-bg)/30 prim-font">
             <div className="m-auto flex items-center py-4 sm:px-10 p-2 max-w-400">
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li title="Visit landing page">
                         <NavLink to="/intro" className='text-md sm:text-2xl tracking-widest'>
                             {/* go to landing page */}
-                            {/* Fauna<span className="text-(--primary-bg)">UI</span> */}
+                            {/* uncomment if image is acting wierd Fauna<span className="text-(--primary-bg)">UI</span> */}
                             <img key={theme} // this key is important for animating the logo text
                                 src={`/assets/Text${theme}.svg`}
                                 loading='lazy'
@@ -30,9 +30,9 @@ export function RenderNav() {
                     {/* dark mode? light mode? theme toggle button resides below ˅ */}
                     <li>
                         <button title="Toggle dark/light mode"
-                            className="bg-(--primary-bg) rounded-t-lg text-xl rounded text-(--primary-fg) duration-300 ease-in-out p-1"
+                            className="bg-(--primary-bg) aspect-square w-6 sm:w-8 rounded-t-lg text-sm sm:text-xl rounded text-(--primary-fg) duration-300 ease-in-out"
                             onClick={toggle}
-                        >⛯</button>
+                        ><span className="text-xl">⛯</span></button>
                     </li>
                 </ul>
             </div>

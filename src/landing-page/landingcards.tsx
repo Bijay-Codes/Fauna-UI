@@ -39,8 +39,8 @@ function RenderThemeSwatch({ data }: { data: theme }) {
             <h1 className="text-lg sec-font font-extrabold">{data.name}</h1>
             <div className="text-md sec-font text-center flex gap-2 flex-wrap justify-center">
                 {/* Fonts of theme */}
-                <h2>{data.font.main}</h2>
-                <h2>{data.font.body}</h2>
+                <h2>[{data.font.main}]</h2>
+                <h2>[{data.font.body}]</h2>
             </div>
             <div className="flex gap-2">
                 {/* Color swatches of the card */}

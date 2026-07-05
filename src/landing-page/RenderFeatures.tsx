@@ -7,10 +7,11 @@ export function RenderFeatures() {
         '40 themes to choose from- More coming',
         'Copy in format you will use'
     ]
-    const formatStyles = 'bg-(--accent-bg) text-(--accent-fg) px-2 py-1 rounded'
+    const formatStyles = 'bg-(--accent-bg) text-(--accent-fg) sm:px-3 px-2 py-1 rounded'
     return (
         <section className="p-2 self-start flex flex-col gap-4">
-            <h4 className="py-4 text-2xl font-bold"><span className="text-(--accent-bg)">#</span> What you actually get</h4>
+            <h4 className="py-2 text-2xl font-bold">
+                <span className="text-(--accent-bg)">#</span> What you actually get</h4>
             <ul className="sec-font flex flex-col gap-2 text-(--surface-muted-fg)">
                 {features.map(f => {
                     return (

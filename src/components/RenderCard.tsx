@@ -57,7 +57,7 @@ export function RenderCard({ data }: CardDataProps) {
     return (
         <Link title="Click to visit" to={`/explore/${data.id}`} className="block no-underline">
             <div
-                className="w-80 aspect-square rounded-lg text-center
+                className="w-65 sm:w-80 aspect-square rounded-lg text-center
                 flex flex-col gap-4 p-4 justify-center items-center
                 hover:-translate-y-0.5 border-(--primary-bg) hover:border-l-4 hover:border-r-4
                 transition-all duration-100 ease-in sec-font"

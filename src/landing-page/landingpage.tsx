@@ -14,7 +14,7 @@ function RenderMain() {
         <section className=" py-4 sm:py-6 sm:px-6 px-4 gap-6
         flex flex-col items-center justify-center w-screen max-w-350 m-auto
         transition-all duration-700 ease-in-out">
-            <main className="sm:grid sm:grid-cols-[1fr_auto] flex flex-wrap items-center px-4 py-6 gap-4">
+            <main className="sm:grid sm:grid-cols-[1fr_auto] flex flex-wrap items-center px-4 py-6 gap-4 w-full">
                 <div className="flex flex-col gap-2">
                     {/*
                     uncomment if the logo image is acting wierd

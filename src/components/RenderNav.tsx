@@ -10,7 +10,7 @@ export function RenderNav() {
 
     return (
         <nav className="sm:h-20 w-full border-b border-(--accent-bg)/30 prim-font">
-            <div className="m-auto flex items-center py-4 sm:px-10 p-2 max-w-400">
+            <div className="m-auto flex items-center py-4 sm:px-10 p-2 max-w-400 mt-2">
                 <ul className="flex gap-2 sm:gap-4 items-center w-full">
                     <li title="Visit landing page">
                         <NavLink to="/intro" className='text-md sm:text-2xl tracking-widest'>

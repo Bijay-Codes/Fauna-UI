@@ -68,6 +68,7 @@ i dont think i will be babbling here for some days since im not getting much tim
 
 Hmm haven't been writing now right? well the exams are very close so im puttin all my time on study or coding the repo has been queit so i started doing some work here and just finished adding the filter functionality i will be putting this repo public now since i can show it now because it is finally looking good and usable though i still thing the color themes need a little work and add more animal themes.
 
+### The end of all- Final stretch
 __________________________________________________________________________________________________________________
 
 I literally dont even know but i think my functions are doing a lot of work... at a glance a person could even get lost in it and not even know what to change to do what... not to mention using the AI for the contrast checking function... hmm idk why but i dont like using AI for that but well i dont have time for undestanding it right now while juggling my exams.
@@ -78,3 +79,25 @@ Leaving that aside i learnt typescript a little from this project but i still do
 Okay guess what? hmm soo i have been using firefox as my default browser for its obvious better CSS/Layout tools than chrome and then i noticed itt... when i went to chrome to run the site and get a lighthouse score i saw my site has way less font size than what is on firefox!
 
 Why this happened? hmmm because i had bumped my font size way too much because i cant see stuff from a distance... all this time i optimized for a font size that isnt normal and already too big but since i dont use chrome there was no font size bump there so i noticed this inconsistency. I thought to myself must be a CSS issue but well it wasnt lol, now im fixing the font size issue and its reasuring that i can go back to my small font version whenever i think this update is unnecessary.
+
+
+__________________________________________________________________________________________________________________
+
+At this point i think this project is good enough to be called 'done' though its not really true because a project is never done, we just reach the point where we got bored of working on same projects, we created what we wanted to with the scope we finalized, or just straight up abandon it mid way, for this project it has seen all of them happen... almost- when it was mid build and i noticed that i cant depend on AI to generate clean data for me to use it kind of demotivated me, i kept trying and trying for 2 days and then i snapped hmm i dont know why but i lost my motivation to create this project got to the point i wanted to remove it or hide it thats why it wasnt public repo untill i figured out how to get the theme data that isnt broken afterall its easy to imagine the product being built since everyhting goes as planned there but in reality it doesnt it just happens such that something we didnt thought much of happens and it is a big deal now.
+
+Its suprising this project survived since i was planning to abandon it mid way, but as soon as i got the usable data my motivation returned, not quickly but steadily. I started to work on it instead of trying to avoid it by telling myself a half hearted truth that this project isnt worth it right now lets keep it private.
+
+How i got usable data? hmm its not that complex now that i see it, so basically i did what i thought was right. use AI for manual work of finding the core color to use in theme, and as you know it happens so that color theory isnt that hard, there are ways we can find color pairs that look good together- want 2 colors that compliment each other? look in a straight line it exists in color wheel thats his partner want three instead? look at left and right of that color in 90degree and call it triadic colors, want more? just use the neighbours of that colors and call it complimentory and there are many other ways as well already researched on- why reinvent the wheel when you already have the color wheel on your side after that use maths (AI written function because i suck at maths and like that) to find the text color that is visible on that specific color check contrast ratio and finalize it, i know im using AI too much but well after all i just want to create good looking site fast for now because i have no time to stop to think about colors, font etc for literal days while i should be there on code editor writing logic-
+Why not make the product first then color? nope that didnt. Work every time i started coding without a mockup or frame in my mind it went bad and weird UI/UX so use figma and genrate a mockup/wireframe to follow and ship stuff
+furthermore we can adjust then readjust and readjust again and again in figma without feeling annoyed to delete the code you wrote to make that wireframe instead it just depends on your creativity and problem solving.
+
+so the loop was Find the primary or accent color per animal use color wheel methods to get more colors => and then adjust their lightness and contrast depending on what we want to use the color as like primary should be less lightness than accent and greater than secondary and other relations => find best fitting/visible font color on them => pick font to use => test and readjust.
+
+How did i manage to come everyday to code this when i was feeling like this project is not worth it?
+Hmm i didnt actually. throguht this one i took breaks, the time i got demotivated to make this i took a 2 day break worked on diffrent things like problem solving etc still having guilt im not making what i was and abandoning this project- and that guilt pulled me to finish this now. Its important to take a little break from big stuff and go do some small stuff but not doing anything at all is a bigger problem which i hate so i didnt do it.
+
+
+Now all thats left is write a readme, screen shot ask for review and change the things that are genuinly bad.
+
+Dated 5 june
+well almost took a month to build this and probably take more... maybe or maybe not.

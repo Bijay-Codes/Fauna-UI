@@ -167,8 +167,8 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
     return (
         <div className="relative inline-block" ref={wrapperRef}>
             <button title="Copy this theme"
-                className="px-3 py-1 rounded  hover:opacity-90
-                 text-lg font-medium sec-font"
+                className="sm:px-3 px-2 py-1 sm:py-2 rounded hover:opacity-90
+                 text-md sm:text-lg font-medium sec-font"
                 style={{
                     background: `linear-gradient(to bottom right,
                      ${current.primary_bg},
@@ -216,7 +216,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                                 {(["current", "both"] as Scope[]).map((s) => (
                                     <button
                                         key={s}
-                                        className="px-1 rounded flex-1"
+                                        className="px-1 rounded flex-1 capitalize"
                                         style={
                                             scope === s
                                                 ? { background: current.primary_bg, color: current.primary_fg }
@@ -224,7 +224,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                                         }
                                         onClick={() => setScope(s)}
                                     >
-                                        {s === "current" ? `${mode} only` : "light + dark"}
+                                        {s === "current" ? `${mode} only` : "Light + Dark"}
                                     </button>
                                 ))}
                             </div>

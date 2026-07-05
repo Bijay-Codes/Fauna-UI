@@ -37,9 +37,13 @@ export function RenderDetail() {
                 tabIndex={0}
                 autoFocus
                 onKeyDown={(e) => handleKeyDown(e)}
-                className="flex flex-col justify-center sm:items-start items-center
-                p-6 gap-6">
-                <Link to='/explore' className="underline underline-offset-8 hover:text-(--success-color) text-xl">← Go back to Explore</Link>
+                className="flex flex-col justify-center sm:items-start items-center max-w-400 m-auto mt-6
+                sm:p-12 gap-6 bg-(--surface-bg)/40 border border-l-4 border-(--border)/30 rounded">
+                <Link
+                    to='/explore'
+                    className="underline underline-offset-8 hover:text-(--success-color) text-xl self-start">
+                    ← Go back to Explore
+                </Link>
                 <div className="mt-4 p-4 rounded-lg bg-(--danger-color) flex items-center gap-2 text-(--danger-fg) text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
                         <path fill="currentColor" fillRule="evenodd" d="M7.843 3.802C9.872 2.601 10.886 2 12 2s2.128.6 4.157 1.802l.686.406c2.029 1.202 3.043 1.803 3.6 2.792c.557.99.557 2.19.557 4.594v.812c0 2.403 0 3.605-.557 4.594s-1.571 1.59-3.6 2.791l-.686.407C14.128 21.399 13.114 22 12 22s-2.128-.6-4.157-1.802l-.686-.407c-2.029-1.2-3.043-1.802-3.6-2.791C3 16.01 3 14.81 3 12.406v-.812C3 9.19 3 7.989 3.557 7s1.571-1.59 3.6-2.792zM13 16a1 1 0 1 1-2 0a1 1 0 0 1 2 0m-1-9.75a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0V7a.75.75 0 0 1 .75-.75" clipRule="evenodd"></path>
@@ -98,7 +102,7 @@ export function RenderDetail() {
                     <div className="flex gap-2 flex-wrap prim-font items-center">
                         <h2 className="opacity-80 text-xl">Active</h2>
                         <button title="Click to check light/dark mode of this theme"
-                            className="px-2 py-2 rounded text-md capitalize"
+                            className="sm:px-2 px-1 py-1  sm:py-2 rounded text-md capitalize"
                             style={{ background: primary_bg, color: primary_fg }}
                             onClick={toggle}
                         >
@@ -117,7 +121,7 @@ export function RenderDetail() {
                             style={
                                 {
                                     background: `linear-gradient(to bottom,
-                    transparent 40%,
+                    transparent 5%,
                     ${primary_bg} 100%)`
                                 }}>
                             <RenderFooter />
@@ -181,7 +185,7 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
             <RenderFont theme={theme} mode={mode} />
 
             {/* Line break for sections */}
-            <hr className="border-t border-neutral-200 dark:border-neutral-800 my-4" />
+            <hr className="my-4" />
 
             {/* Use case section => render where the users can use this theme section */}
             <div className="flex flex-col gap-3">
@@ -218,7 +222,7 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
                     ))}
                 </div>
             </div>
-            <hr className="border-t border-neutral-200 dark:border-neutral-800 my-4" />
+            <hr className="border-t my-4" />
         </main>
     )
 }

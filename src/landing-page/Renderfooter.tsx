@@ -8,7 +8,7 @@ export function RenderFooter() {
                     href="https://github.com/Bijay-Codes/fauna-ui/issues"
                     className="underline underline-offset-8 hover:text-(--primary-bg)"
                     target="_blank">
-                    Open an issue on GitHub—
+                    Open an issue on GitHub
                 </a>
             </p>
             <div

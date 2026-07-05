@@ -31,7 +31,7 @@ export function RenderCategory() {
                     >
                         <div className="font-medium text-md sm:text-lg text-(--page-fg)">{c.category} <span>↗</span></div>
                         <div className="flex flex-wrap gap-2 opacity-80 text-(--page-fg) text-sm">
-                            {c.subcategories.map((sc, i) => i <= tags && <span key={sc}>[ {sc} ]</span>)}
+                            {c.subcategories.map((sc, i) => i < tags && <span key={sc}>[ {sc} ]</span>)}
                         </div>
                     </div>
                 ))}

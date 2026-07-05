@@ -14,6 +14,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path="/" element={<App />} />
       <Route path='/explore' element={<RenderExplore />} />
       <Route path='/explore/:id' element={<RenderDetail />} />
+      <Route path="*" element={<RenderLandingPage />} />
     </Routes>
   </BrowserRouter>
 )

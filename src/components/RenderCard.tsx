@@ -53,7 +53,7 @@ export function RenderCard({ data }: CardDataProps) {
         surface_muted_bg, surface_muted_fg,
         surface_bg, surface_fg } = data.color[mode];
     const colors = 'w-4 rounded aspect-square outline';
-
+    const categoryUpperlimit = 3;
     return (
         <Link title="Click to visit" to={`/explore/${data.id}`} className="block no-underline">
             <div
@@ -80,7 +80,7 @@ export function RenderCard({ data }: CardDataProps) {
                 </div>
                 <div className="sec-font" style={{ color: surface_muted_fg }}>
                     {data.categories.map((c, i) => {
-                        if (i <= 3)
+                        if (i <= categoryUpperlimit)
                             return (
                                 <span key={i} className="text-md px-0.5" style={{ color: surface_bg }}>
                                     [<span className="text-sm" style={{ color: primary_fg }}>{c}</span>]

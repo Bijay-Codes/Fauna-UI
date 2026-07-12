@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { theme as Theme, color as Color } from "../types";
+import { oklchToHex } from "../test"; // or wherever you land this file
 
-type Format = "css" | "tailwind" | "json" | "array" | "font";
+type Format = "css" | "tailwind" | "json" | "figma" | "font"; // want to add a new format? add it here too
 type Scope = "current" | "both";
 
 interface CopyThemeButtonProps {
@@ -13,7 +14,7 @@ const FORMAT_LABELS: Record<Format, string> = {
     css: "CSS Variables",
     tailwind: "Tailwind Config v3",
     json: "JSON",
-    array: "Color Array",
+    figma: "Figma Import", // Changed from Color Array now figma import
     font: "Font Import",
 };
 
@@ -35,7 +36,11 @@ function buildTailwindBlock(color: Color, indent = "        ") {
         .map(([key, value]) => `${indent}'${key.replace(/_/g, "-")}': '${value}',`)
         .join("\n");
 }
-
+function buildFigmaBlock(color: Color): Record<string, string> {
+    return Object.fromEntries(
+        Object.entries(color).map(([key, value]) => [key, oklchToHex(value)])
+    );
+}
 // call the generator functions based on which format user choose
 function generateOutput(theme: Theme, mode: "light" | "dark", format: Format, scope: Scope): string {
     const { color, font, name } = theme;
@@ -89,21 +94,16 @@ function generateOutput(theme: Theme, mode: "light" | "dark", format: Format, sc
             return JSON.stringify(data, null, 2);
         }
 
-
-        // Simple array creation, normalization using regex
-        case "array": {
+        case "figma": {
             if (scope === "current") {
-                return `[\n${Object.values(current)
-                    .map((v) => `  "${v}"`)
-                    .join(",\n")}\n]`;
+                return JSON.stringify(buildFigmaBlock(current), null, 2);
             }
-            return `{\n  "light": [\n${Object.values(color.light)
-                .map((v) => `    "${v}"`)
-                .join(",\n")}\n  ],\n  "dark": [\n${Object.values(color.dark)
-                    .map((v) => `    "${v}"`)
-                    .join(",\n")}\n  ]\n}`;
+            return JSON.stringify(
+                { light: buildFigmaBlock(color.light), dark: buildFigmaBlock(color.dark) },
+                null,
+                2
+            );
         }
-
 
         // Font imports to add at html head
         case "font": {
@@ -145,6 +145,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
         try {
             await navigator.clipboard.writeText(output);
             setCopied(true);
+            setOpen(false);
             setTimeout(() => setCopied(false), 1500);
         } catch {
             // Display message that copy failed
@@ -235,9 +236,7 @@ export function CopyThemeButton({ theme, mode }: CopyThemeButtonProps) {
                         className="w-full px-2 mt-2 rounded text-lg font-medium prim-font"
                         style={{ background: current.primary_bg, color: current.primary_fg }}
                         onClick={handleCopy}
-                    >
-                        {copyFailed ? "Try again ✕" : copied ? "Copied ✓" : "Copy"}
-                    </button>
+                    >Copy</button>
                 </div>
             )}
         </div>

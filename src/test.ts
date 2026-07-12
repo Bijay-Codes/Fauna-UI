@@ -20,8 +20,7 @@ export function parseOklch(oklchString: string): OKLCH {
   };
 }
 
-
-function oklchToOklab({ l, c, h }: OKLCH) {
+export function oklchToOklab({ l, c, h }: OKLCH) {
   const hRad = (h * Math.PI) / 180;
   return {
     L: l,
@@ -30,7 +29,7 @@ function oklchToOklab({ l, c, h }: OKLCH) {
   };
 }
 
-function oklabToLinearSrgb({ L, a, b }: { L: number; a: number; b: number }) {
+export function oklabToLinearSrgb({ L, a, b }: { L: number; a: number; b: number }) {
   const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
   const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
   const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
@@ -46,7 +45,7 @@ function oklabToLinearSrgb({ L, a, b }: { L: number; a: number; b: number }) {
   };
 }
 
-function linearToSrgbChannel(x: number): number {
+export function linearToSrgbChannel(x: number): number {
   const clamped = Math.min(1, Math.max(0, x));
   return clamped <= 0.0031308
     ? 12.92 * clamped
@@ -67,7 +66,6 @@ function oklchToLuminance(color: OKLCH): number {
   const b = linearToSrgbChannel(linear.b);
   return relativeLuminance(r, g, b);
 }
-
 
 function getContrastRatio(colorA: OKLCH, colorB: OKLCH): number {
   const lumA = oklchToLuminance(colorA);
@@ -107,4 +105,51 @@ export function getWCAGRating(
     else rating = "Fail";
   }
   return { ratio: Math.round(ratio * 10) / 10, rating };
+}
+
+// --- Figma export ---
+// figma import just wants hex so no need for the hsl step
+
+// true if the color actually exists in sRGB, some oklch values dont
+function isInGamut({ r, g, b }: { r: number; g: number; b: number }): boolean {
+  return r >= 0 && r <= 1 && g >= 0 && g <= 1 && b >= 0 && b <= 1;
+}
+
+// if color is out of gamut, keep lowering chroma till it fits (keeps hue/lightness same)
+function reduceChromaToGamut(color: OKLCH): OKLCH {
+  const linear = oklabToLinearSrgb(oklchToOklab(color));
+  if (isInGamut(linear)) return color;
+
+  let lo = 0;
+  let hi = color.c;
+  let best: OKLCH = { ...color, c: 0 }; // 0 chroma = gray, always fits
+
+  for (let i = 0; i < 20; i++) {
+    const mid = (lo + hi) / 2;
+    const candidate: OKLCH = { l: color.l, c: mid, h: color.h };
+    const rgb = oklabToLinearSrgb(oklchToOklab(candidate));
+    if (isInGamut(rgb)) {
+      best = candidate;
+      lo = mid;
+    } else {
+      hi = mid;
+    }
+  }
+  return best;
+}
+
+function toHexByte(channel: number): string {
+  const byte = Math.round(channel * 255);
+  return byte.toString(16).padStart(2, "0");
+}
+
+// oklch string -> #rrggbb
+export function oklchToHex(oklchString: string): string {
+  const parsed = parseOklch(oklchString);
+  const inGamut = reduceChromaToGamut(parsed);
+  const linear = oklabToLinearSrgb(oklchToOklab(inGamut));
+  const r = linearToSrgbChannel(linear.r);
+  const g = linearToSrgbChannel(linear.g);
+  const b = linearToSrgbChannel(linear.b);
+  return `#${toHexByte(r)}${toHexByte(g)}${toHexByte(b)}`;
 }

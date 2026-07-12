@@ -99,5 +99,5 @@ Hmm i didnt actually. throguht this one i took breaks, the time i got demotivate
 
 Now all thats left is write a readme, screen shot ask for review and change the things that are genuinly bad.
 
-Dated 5 june
+Dated 5 july
 well almost took a month to build this and probably take more... maybe or maybe not.

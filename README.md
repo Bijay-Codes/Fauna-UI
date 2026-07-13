@@ -8,11 +8,11 @@ Pick an accessibility-verified color theme and get back to your editor — no di
 
 | Home — filter by category | Explore — browse with use cases |
 |---|---|
-| ![Home page](./preview.webp) | ![Explore page](./screenshots/explore.png) |
+| ![Home page](./public/preview.webp) | ![Explore page](./public/screenshots/explore.png) |
 
 | Theme page — live contrast scores | Export panel |
 |---|---|
-| ![Theme page](./screenshots/theme-dark.png) | ![Export panel](./screenshots/theme-light.png) |
+| ![Theme page](./public/screenshots/theme-dark.png) | ![Export panel](./public//screenshots/theme-light.png) |
 
 ## What it does
 
@@ -40,7 +40,7 @@ React · TypeScript · Tailwind CSS
 ## Performance
 
 Lighthouse audit: **99 Performance / 100 Accessibility / 100 Best Practices / 100 SEO**
-![Lighthouse scores](./screenshots/perfectscore.png)
+![Lighthouse scores](./public//screenshots/perfectscore.png)
 
 ## How the palettes are built
 

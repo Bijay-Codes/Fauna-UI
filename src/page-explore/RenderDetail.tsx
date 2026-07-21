@@ -19,7 +19,7 @@ export function RenderDetail() {
     // Function that handles the left and right key click to change between pages
     const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
         if (!isDesktop) return
-        // // convert to num
+        // convert to num
         const currentNum = Number(id);
 
         if (e.key === 'ArrowRight') {

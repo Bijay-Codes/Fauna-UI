@@ -25,7 +25,7 @@ export function RenderCards() {
             <div className="flex flex-nowrap gap-4 overflow-auto h-fit py-4">
                 {data.map(data => {
                     return (
-                        <div key={data.id}>
+                        <div key={data.id} className="z-10">
                             <RenderCard data={data} />
                         </div>
                     );
@@ -59,7 +59,7 @@ export function RenderCard({ data }: CardDataProps) {
             <div
                 className="w-65 sm:w-80 aspect-square rounded-lg text-center
                 flex flex-col gap-4 p-4 justify-center items-center
-                hover:-translate-y-0.5 border-(--primary-bg) hover:border-l-4 hover:border-r-4
+                hover:-translate-y-0.5 hover:z-20 border-(--primary-bg) hover:border-l-4 hover:border-r-4
                 transition-all duration-100 ease-in sec-font"
                 style={{
                     background: primary_bg,

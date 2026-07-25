@@ -20,21 +20,18 @@ _____________________
 export function RenderCards() {
     const data = getBestTheme(colorAnim);
     return (
-        <section className="flex flex-col p-4">
+        <section className="flex flex-col p-4 m-1 items-start w-full">
             <div className="text-2xl font-extrabold tracking-tight">Hot picks</div>
-            <div className="flex flex-nowrap gap-4 overflow-auto h-fit py-4">
-                {data.map(data => {
-                    return (
-                        <div key={data.id} className="z-10">
-                            <RenderCard data={data} />
-                        </div>
-                    );
-                })}
+            <div className="flex flex-nowrap gap-3 overflow-x-auto py-4 w-full">
+                {data.map(data => (
+                    <div key={data.id} className="z-10 shrink-0">
+                        <RenderCard data={data} />
+                    </div>
+                ))}
             </div>
         </section>
     );
 }
-
 // Rensonsible for rendering card in a good format and inject colors from the theme object
 /* data is theme {
     color:{
@@ -57,7 +54,7 @@ export function RenderCard({ data }: CardDataProps) {
     return (
         <Link title="Click to visit" to={`/explore/${data.id}`} className="block no-underline">
             <div
-                className="w-65 sm:w-80 aspect-square rounded-lg text-center
+                className="w-65 sm:w-80 h-80 aspect-square rounded-lg text-center
                 grid p-4
                 hover:-translate-y-0.5 hover:z-20 border-(--primary-bg) hover:outline hover:outline-offset-4
                 transition-all duration-100 ease-in sec-font bg-(--surface-bg)"

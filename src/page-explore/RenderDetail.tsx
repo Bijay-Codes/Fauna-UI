@@ -41,8 +41,8 @@ export function RenderDetail() {
                 sm:p-12 gap-6 bg-(--surface-bg)/40 border border-l-4 border-(--border)/30 rounded">
                 <Link
                     to='/explore'
-                    className="underline underline-offset-8 hover:text-(--success-color) text-xl self-start">
-                    ← Go back to Explore
+                    className="underline underline-offset-6 hover:text-(--success-color) text-xl self-start">
+                    &lt;&lt; Go back to Explore
                 </Link>
                 <div className="mt-4 p-4 rounded-lg bg-(--danger-color) flex items-center gap-2 text-(--danger-fg) text-sm">
                     <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export function RenderDetail() {
                 className="flex flex-col gap-4 p-4
             max-w-400 m-auto"
             >
-                <Link to='/explore' className="underline text-xl prim-font hover:text-(--success-color)">← Go back to Explore</Link>
+                <Link to='/explore' className="underline underline-offset-6 text-xl prim-font hover:text-(--success-color)">&lt;&lt; Go back to Explore</Link>
                 {isDesktop && <div className="text-md">You can switch between themes using left and right arrow keys</div>}
 
                 {/* renders copy button theme name and tagline */}
@@ -99,14 +99,13 @@ export function RenderDetail() {
                 {/* renders darkmode toggle section */}
                 <div className="flex flex-row sm:flex-col flex-wrap gap-4">
                     <h1 className="text-2xl w-fit font-bold">This page is using {name} theme</h1>
-                    <div className="flex gap-2 flex-wrap prim-font items-center">
-                        <h2 className="opacity-80 text-xl">Active</h2>
+                    <div className="flex flex-col gap-2 flex-wrap prim-font">
+                        <span className="opacity-80 text-xl capitalize">Theme [ {mode} ]</span>
                         <button title="Click to check light/dark mode of this theme"
-                            className="sm:px-2 px-1 py-1  sm:py-2 rounded text-md capitalize"
+                            className="sm:px-6 px-2 py-0.5 sm:py-1 rounded text-md sm:text-lg w-fit"
                             style={{ background: primary_bg, color: primary_fg }}
                             onClick={toggle}
-                        >
-                            [ {mode} ] <span className="animate-pulse">Toggle</span>
+                        >Toggle
                         </button>
                     </div>
                 </div>
@@ -155,7 +154,8 @@ export function RenderDetail() {
 function RenderHero({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode]
     return (
-        <main className="flex flex-col justify-center gap-4 sm:py-8 sm:p-4 py-6 border-b-2"
+        <main
+            className="flex flex-col justify-center gap-4 sm:py-8 sm:p-4 py-6 border-b-2"
             style={{
                 borderColor: colors.accent_bg,
             }}>
@@ -185,7 +185,7 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
             <RenderFont theme={theme} mode={mode} />
 
             {/* Line break for sections */}
-            <hr className="my-4" />
+            <hr className="my-4 opacity-30" />
 
             {/* Use case section => render where the users can use this theme section */}
             <div className="flex flex-col gap-3">
@@ -222,7 +222,7 @@ function RenderContent({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }
                     ))}
                 </div>
             </div>
-            <hr className="border-t my-4" />
+            <hr className="border-t my-4 opacity-30" />
         </main>
     )
 }
@@ -241,6 +241,8 @@ const swatch: { key: keyof color, label: string, fgKey: keyof color }[] = [
 ];
 
 function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }) {
+
+
     return (
         <div className="flex flex-col gap-3">
             <h2
@@ -249,32 +251,64 @@ function RenderColor({ colors, mode }: { colors: color; mode: 'dark' | 'light' }
                 Palette | {mode}
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {swatch.map(({ key, label, fgKey }) => {
-                    const { ratio, rating } = getWCAGRating(colors[key], colors[fgKey]);
-                    return (
-                        <div
-                            key={key}
-                            className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border"
-                            style={{
-                                background: colors[key], color: colors[fgKey],
-                                borderColor: colors.surface_fg
-                            }}
-                        >
-                            <span className="text-sm font-medium">{label}</span>
-                            <div className="flex gap-2 text-xs opacity-90 sec-font w-fit px-2 items-center">
-                                <span>
-                                    {ratio} : 1
-                                </span>
-                                <span>||</span>
-                                <span>{rating}</span>
+                {
+                    swatch.map(({ key, label, fgKey }) => {
+                        const { ratio, rating } = getWCAGRating(colors[key], colors[fgKey]);
+                        const colorToCopy = `bg{${colors[key]}} fg{${colors[fgKey]}}`
+                        return (
+                            <div
+                                key={label}
+                                className="flex flex-col gap-1 rounded-lg p-2 min-h-15 justify-center border relative"
+                                style={{
+                                    background: colors[key], color: colors[fgKey],
+                                    borderColor: colors.surface_fg
+                                }}
+                            >
+                                <ColorCopy colorToCopy={colorToCopy} />
+                                <span className="text-sm font-medium">{label}</span>
+                                <div className="flex gap-2 text-xs opacity-90 sec-font w-fit px-2 items-center">
+                                    <span>
+                                        {ratio} : 1
+                                    </span>
+                                    <span>||</span>
+                                    <span>{rating}</span>
+                                </div>
                             </div>
-                        </div>
-                    );
-                })}
+                        );
+                    })}
             </div>
         </div>
     )
 };
+function ColorCopy({ colorToCopy }: { colorToCopy: string }) {
+    const [copied, setCopied] = useState<true | false>(false);
+    const copyColor = async () => {
+        try {
+            await navigator.clipboard.writeText(colorToCopy).then(
+                () => setCopied(true)
+            ).then(() => setTimeout(() => {
+                setCopied(false);
+            }, 3000));
+        } catch {
+            setCopied(false);
+        }
+    }
+    return (
+        <span
+            onClick={() => copyColor()}
+            className="absolute bottom-0 right-0 w-7 p-2">{copied ?
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
+                    <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
+                </svg>
+                :
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z" />
+                </svg>
+            }
+        </span>
+    )
+}
 
 function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
     const colors = theme.color[mode];
@@ -288,8 +322,7 @@ function RenderFont({ theme, mode }: { theme: theme; mode: 'dark' | 'light' }) {
             </h2>
             <div
                 className="flex flex-col gap-4 rounded-lg p-4"
-                style={{ background: colors.surface_bg, color: colors.surface_fg }}
-            >
+                style={{ background: colors.surface_bg, color: colors.surface_fg }}>
                 <div>
                     <div className="text-lg" style={{ fontFamily: theme.font.main }}>
                         {theme.name} sets the tone

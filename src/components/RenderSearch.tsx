@@ -68,7 +68,7 @@ function findTheme(text: string) {
 // set a function that renders all the list items
 function SearchUtility({ filtered, handleSearch }: { filtered: string[], handleSearch: (name: string) => void }) {
     return (
-        <div className="flex flex-col gap-3 bg-(--surface-bg) rounded-lg m-2 w-fit p-2 sm:p-4 absolute top-full z-50">
+        <div className="flex flex-col gap-3 bg-(--secondary-bg) rounded-lg m-2 w-fit p-2 sm:pr-4 absolute top-full z-50 outline outline-(--surface-muted-fg)">
             {filtered.map((name, i) =>
             (i < 4 &&
                 <span key={name + i} className="capitalize hover:bg-(--accent-bg) hover:text-(--accent-fg) p-2 rounded-lg"

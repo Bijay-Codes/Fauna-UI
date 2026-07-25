@@ -22,14 +22,18 @@ export function RenderExplore() {
     const filtered = subcategories ? filterCategory(subcategories, colorAnim) : colorAnim;
 
     return (
-        <div className="relative flex flex-col sm:gap-4 md:gap-10 w-full items-center m-auto max-w-400 transition-all duration-300 ease-in-out">
-
-            <RenderSearch homepage={false} />
-            <div className="p-2 md:px-10 sm:absolute sm:top-0 self-start">
-                <RenderFilter
-                    activeFilters={subcategories}
-                    onChangeFilters={setSubcategories}
-                />
+        <div className="relative flex flex-col sm:gap-10 w-full items-center m-auto max-w-400
+        transition-all duration-300 ease-in-out">
+            <div className="max-w-400 w-full flex items-center gap-2">
+                <div className="flex-1 min-w-0">
+                    <RenderSearch homepage={false} />
+                </div>
+                <div className="sm:sticky sm:top-0 shrink-0">
+                    <RenderFilter
+                        activeFilters={subcategories}
+                        onChangeFilters={setSubcategories}
+                    />
+                </div>
             </div>
 
 
@@ -42,7 +46,7 @@ export function RenderExplore() {
                     Clear filter ✕
                 </button>
             )}
-            <main className="flex flex-wrap py-4 justify-center gap-6 overflow-hidden">
+            <main className="flex flex-wrap py-4 justify-center gap-y-6 gap-x-8 overflow-hidden">
                 {filtered.map(data => (
                     <RenderCard key={data.id} data={data} />
                 ))}
